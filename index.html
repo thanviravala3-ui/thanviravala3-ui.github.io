@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thanvi Ravala | AI + CS Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top left, #1f2933 0, #05070a 40%, #020308 100%);
+      color: #f9fafb;
+      line-height: 1.6;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .page {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    @media (min-width: 720px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    .intro {
+      max-width: 620px;
+    }
+    .eyebrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+    h1 {
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .tagline {
+      font-size: 1rem;
+      color: #d1d5db;
+      margin-bottom: 12px;
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(156, 163, 175, 0.5);
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: rgba(15, 23, 42, 0.9);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border 0.12s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #0ea5e9);
+      border-color: transparent;
+      color: #020617;
+      font-weight: 600;
+      box-shadow: 0 16px 40px rgba(34, 197, 94, 0.35);
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.6);
+      border-color: rgba(209, 213, 219, 0.9);
+    }
+    .btn-primary:hover {
+      box-shadow: 0 18px 40px rgba(34, 197, 94, 0.5);
+    }
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr);
+      gap: 32px;
+    }
+    @media (min-width: 900px) {
+      main {
+        grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.1fr);
+      }
+    }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      margin-bottom: 18px;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+    }
+    @media (min-width: 720px) {
+      .card-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+    }
+    .card {
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), rgba(15, 23, 42, 0.96));
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border 0.12s ease, background 0.12s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+      border-color: rgba(209, 213, 219, 0.9);
+      background: radial-gradient(circle at top left, rgba(45, 212, 191, 0.2), rgba(15, 23, 42, 0.98));
+    }
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+    .card-tagline {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+    .card-meta {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .card-pill {
+      border-radius: 999px;
+      padding: 2px 8px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.75rem;
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.9);
+    }
+    .sidebar-card {
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      margin-bottom: 14px;
+    }
+    .sidebar-card p {
+      font-size: 0.9rem;
+      color: #d1d5db;
+      margin-bottom: 8px;
+    }
+    .sidebar-list {
+      list-style: none;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+    .sidebar-list li {
+      margin-bottom: 4px;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="intro">
+        <div class="eyebrow">Thanvi Ravala</div>
+        <h1>AI, data, and developer tools for real projects.</h1>
+        <p class="tagline">
+          Computer Science @ Virginia Tech. I like turning messy problems into clean, well-built tools, from semantic search engines to full-stack dashboards.
+        </p>
+        <p class="meta">
+          Focus areas: AI engineering, data engineering, and cloud DevOps.
+        </p>
+        <div class="pill-row">
+          <div class="pill">AI + ML</div>
+          <div class="pill">Python · Java · SQL</div>
+          <div class="pill">GitHub · Git</div>
+          <div class="pill">Semantic search</div>
+        </div>
+        <div class="links">
+          <a class="btn btn-primary" href="https://github.com/thanviravala3-ui" target="_blank" rel="noreferrer">
+            View GitHub profile
+          </a>
+          <a class="btn" href="mailto:thanviravala@vt.edu">
+            Email me
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h2 class="section-title">Selected projects</h2>
+        <p class="section-subtitle">
+          A few repos that show how I think about building systems: clear structure, readable code, and practical use cases.
+        </p>
+
+        <div class="card-grid">
+          <a class="card" href="https://github.com/thanviravala3-ui/semantic-search-technical-notes" target="_blank" rel="noreferrer">
+            <div class="card-title">Semantic Search for Technical Notes</div>
+            <div class="card-tagline">
+              Small semantic search engine for CAD part descriptions and engineering notes using SentenceTransformers + FAISS.
+            </div>
+            <div class="card-meta">Python · SentenceTransformers · FAISS</div>
+            <div class="card-tags">
+              <span class="card-pill">Embeddings</span>
+              <span class="card-pill">Vector search</span>
+              <span class="card-pill">CLIs</span>
+            </div>
+          </a>
+
+          <div class="card">
+            <div class="card-title">Playlist Generator & Analyzer</div>
+            <div class="card-tagline">
+              Java program that builds playlists based on genre constraints, capacity rules, and custom comparators for ordering.
+            </div>
+            <div class="card-meta">Java · Data structures · OOP design</div>
+            <div class="card-tags">
+              <span class="card-pill">Arrays & linked lists</span>
+              <span class="card-pill">Comparable</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Social Media Visualization</div>
+            <div class="card-tagline">
+              Visualizes engagement metrics from CSV data, using custom linked lists and GUI components to explore trends.
+            </div>
+            <div class="card-meta">Java · GUI · Data visualization</div>
+            <div class="card-tags">
+              <span class="card-pill">CSV parsing</span>
+              <span class="card-pill">Custom ADTs</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">More projects</div>
+            <div class="card-tagline">
+              Hackathon experiments, class projects, and in-progress tools for AI, data, and automation.
+            </div>
+            <div class="card-meta">See pinned repos on GitHub</div>
+            <div class="card-tags">
+              <span class="card-pill">Hackathons</span>
+              <span class="card-pill">APIs</span>
+              <span class="card-pill">Scripting</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div class="sidebar-card">
+          <h3 class="section-title">About</h3>
+          <p>
+            I am a Computer Science student at Virginia Tech who likes building things that feel useful: search tools, dashboards, and systems that make technical work easier.
+          </p>
+          <ul class="sidebar-list">
+            <li>📍 Based in Virginia</li>
+            <li>🎓 CS @ Virginia Tech</li>
+            <li>🤖 Interested in AI engineering and data</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="section-title">Tech I use</h3>
+          <ul class="sidebar-list">
+            <li>Python (Pandas, NumPy, basic ML)</li>
+            <li>Java (OOP, data structures)</li>
+            <li>Git, GitHub, CLI tools</li>
+            <li>Basic web: HTML, CSS, a bit of JS</li>
+          </ul>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <span>© <span id="year"></span> Thanvi Ravala</span>
+      <span>Built with GitHub Pages</span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
