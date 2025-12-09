@@ -851,21 +851,22 @@
       <section id="overview" class="hero">
         <div>
           <div class="hero-eyebrow">
-            <span>AI + data</span> · built by a VT CS student who overthinks systems
+            <span>AI + data</span> · vt cs kid who actually likes backend things
           </div>
           <h1 class="hero-title">Thanvi Ravala</h1>
           <div class="hero-subtitle">
             Computer Science · Virginia Tech · AI & Systems
           </div>
           <p class="hero-tagline">
-            I like taking chaotic, real-world data and turning it into clean,
-            debuggable systems – semantic search engines, retrieval services,
-            and little dashboards that actually tell you what the model is doing.
+            I build AI-flavored systems that don’t fall apart the second real data hits them:
+            semantic search engines, retrieval services, and little dashboards that keep
+            everything honest.
           </p>
           <p class="hero-meta">
-            If you scroll, you’ll see the two projects I’m most proud of right now,
-            plus a tiny chatbot and search sandbox you can poke at. Think of this
-            as my mini control room in space, but for code.
+            I care about three things: clean pipelines, good observability, and code
+            that future-me will not hate. This site is basically my tiny mission control
+            for projects – with live demos you can click around instead of just vibes
+            and buzzwords.
           </p>
 
           <div class="hero-badges">
@@ -889,8 +890,8 @@
             </a>
           </div>
           <div class="hero-secondary">
-            Goal: build things that feel
-            <span>fast, reliable, and not annoying to debug at 2 a.m.</span>
+            Goal: feel fun and <span>human</span> to use, but still
+            very serious about reliability and systems.
           </div>
         </div>
 
@@ -906,7 +907,7 @@
                 />
                 <div class="hero-photo-tag">
                   <span class="hero-photo-tag-dot"></span>
-                  <span>Online · probably coding or traveling</span>
+                  <span>Online · probably coding or trip-planning</span>
                 </div>
               </div>
             </div>
@@ -915,18 +916,19 @@
               <div>
                 <div class="hero-spec-label">What I like building</div>
                 <div class="hero-spec-main">
-                  Systems that sit between ML and infra.
+                  Tools that live between ML models and the real world.
                 </div>
                 <div class="hero-spec-sub">
-                  Stuff like: embeddings + FAISS, Redis queues, and small
-                  dashboards so you’re not guessing why a request failed.
+                  Things like embeddings + FAISS, Redis queues, and simple
+                  dashboards so you can see what the system is doing instead of
+                  just trusting it.
                 </div>
               </div>
               <div>
                 <div class="hero-spec-label">Current “range”</div>
                 <div class="spec-row">
                   <div class="spec-pill">
-                    Graduating May 2027
+                    2025–2027
                     <span> · VT CS, AI / data focus</span>
                   </div>
                   <div class="spec-pill">
@@ -936,11 +938,11 @@
                 </div>
               </div>
               <div>
-                <div class="hero-spec-label">How I think</div>
+                <div class="hero-spec-label">How I work</div>
                 <div class="hero-spec-sub">
-                  Start small, make it observable, then scale. If I can’t explain
-                  it with a simple diagram or CLI trace, it’s probably not ready
-                  yet.
+                  Start small, make it observable, then earn the right to scale.
+                  If I can’t walk through it out loud or trace it from a CLI,
+                  it’s not done yet.
                 </div>
               </div>
             </div>
@@ -948,13 +950,13 @@
         </div>
       </section>
 
-      <!-- PROJECTS (now above demos) -->
+      <!-- PROJECTS -->
       <section id="projects" class="section">
         <div class="section-header">
           <h2 class="section-title">Selected projects</h2>
           <p class="section-sub">
-            These are the two repos that feel the most “me” right now – a semantic
-            search engine and a tiny fleet-style retrieval platform.
+            A few of the systems I’ve shipped so far – with more on the way as I
+            keep leveling up my AI + backend brain.
           </p>
         </div>
 
@@ -973,16 +975,16 @@
                 <div class="project-desc">
                   A compact semantic search engine over CAD part descriptions and
                   engineering notes. I use a pre-trained SentenceTransformers model
-                  with a FAISS index so you can type normal questions and still land
+                  with a FAISS index so you can ask normal questions and still land
                   on the right snippets.
                 </div>
               </div>
               <div class="project-label">Retrieval · Python</div>
             </div>
             <div class="project-meta">
-              Everything is intentionally small and readable: data folder,
-              embeddings, index, and a simple CLI to trace a query from text →
-              vector → top-k results.
+              The repo stays intentionally clean: data folder, embeddings, index,
+              and a simple CLI that lets you trace a query from text → vector →
+              top-k results without getting lost.
             </div>
             <div class="project-tags">
               <span class="project-pill">Python · SentenceTransformers</span>
@@ -1003,16 +1005,16 @@
                 <div class="project-name">Fleet-style Semantic Platform</div>
                 <div class="project-desc">
                   Node.js backend with a Redis job queue and a React dashboard for
-                  tracking retrieval jobs. Every request becomes a “job” you can
-                  actually see, instead of vanishing into the void.
+                  tracking retrieval jobs. Every request becomes a visible job
+                  instead of disappearing into the abyss.
                 </div>
               </div>
               <div class="project-label">Queues · Full stack</div>
             </div>
             <div class="project-meta">
-              JWT-authenticated API, background workers, and a simple status panel
-              for job counts and basic latency. It’s my mini version of a fleet
-              telemetry view.
+              JWT-authenticated API, background workers, and a tiny status panel
+              for job counts and rough latency. It’s my starter version of a fleet
+              telemetry view – opinionated, but easy to extend.
             </div>
             <div class="project-tags">
               <span class="project-pill">Node.js · Express</span>
@@ -1024,13 +1026,13 @@
         </div>
       </section>
 
-      <!-- LIVE DEMOS (only 2 demos now) -->
+      <!-- LIVE DEMOS (2 demos) -->
       <section id="demos" class="section">
         <div class="section-header">
           <h2 class="section-title">Live demos</h2>
           <p class="section-sub">
-            Tiny, in-browser versions of how I think: a chatbot that talks through
-            my work, and a mini “semantic search” sandbox over fake project notes.
+            Click around, break things (gently), and see how I think about
+            routing questions and ranking results – all running right in the browser.
           </p>
         </div>
 
@@ -1041,17 +1043,17 @@
               <div>
                 <div class="panel-title">Project explainer chatbot</div>
                 <div class="panel-desc">
-                  Ask about my projects, stack, or what I’m trying to learn next.
-                  It’s intentionally simple, but wired to route you to the right
-                  part of the page.
+                  Ask about my work, my stack, or what I’m learning. This little bot
+                  isn’t “fancy AI,” it’s just a smart router that gives you straight
+                  answers in my voice.
                 </div>
               </div>
               <div class="panel-label">Demo · Chat</div>
             </div>
             <div class="pill-row">
-              <div class="tiny-pill">Rule-based (for now)</div>
+              <div class="tiny-pill">Rule-based (on purpose)</div>
               <div class="tiny-pill">Projects Q&A</div>
-              <div class="tiny-pill">No backend · all front-end</div>
+              <div class="tiny-pill">Front-end only</div>
             </div>
 
             <div class="demo-body">
@@ -1067,11 +1069,11 @@
                 </div>
                 <div id="chat-output" class="demo-output">
                   <span>bot:</span> ask me about semantic search, queues, VT, or
-                  what I’m trying to build next.
+                  what I’m aiming for next.
                 </div>
                 <div class="demo-hint">
-                  Ideas: “What’s your stack?”, “Do you work with Redis?”,
-                  “What kind of internships are you looking for?”
+                  Ideas: “What’s your stack?”, “Do you use Redis?”, “What kind of
+                  internships are you hunting for?”
                 </div>
               </div>
             </div>
@@ -1083,9 +1085,9 @@
               <div>
                 <div class="panel-title">Semantic search sandbox</div>
                 <div class="panel-desc">
-                  This isn’t running a real embedding model in the browser (yet),
-                  but it mimics the ranking flow over a tiny set of “project
-                  notes”.
+                  A tiny, browser-only version of my retrieval brain. It pretends
+                  to be a semantic search engine over “project notes” and gives you
+                  top matches using a toy scoring scheme.
                 </div>
               </div>
               <div class="panel-label">Demo · Search</div>
@@ -1111,8 +1113,7 @@
                 </div>
                 <div class="demo-hint">
                   The real project uses SentenceTransformers + FAISS in Python –
-                  this is just the “what would we return?” part, in space-themed
-                  UI.
+                  this is the cute front-end cousin that mimics the ranking part.
                 </div>
               </div>
             </div>
@@ -1125,8 +1126,8 @@
         <div class="section-header">
           <h2 class="section-title">About & stack</h2>
           <p class="section-sub">
-            A quick snapshot of who I am, where I am, and what I usually reach for
-            when I open VS Code at midnight.
+            Quick download on who I am, what I care about in systems, and the tools
+            I keep reaching for when I open VS Code “for just a minute.”
           </p>
         </div>
 
@@ -1134,21 +1135,21 @@
           <div class="about-card">
             <h3>Who I am</h3>
             <p>
-              I’m a Computer Science student at Virginia Tech who loves being in
-              that middle layer between “cool ML model” and “actually useful
-              product.” I get excited about retrieval pipelines, queues, and
-              dashboards that make systems less mysterious.
+              I’m a Computer Science student at Virginia Tech who genuinely likes
+              the mix of AI, data, and backend engineering. I love building things
+              that feel approachable on the surface but are very serious about
+              structure and reliability underneath.
             </p>
             <p>
-              My projects are built with the same vibe as this page: small,
-              inspectable, and honest about what’s going on under the hood. If
-              something breaks, I want it to be obvious where to look first.
+              My projects follow a simple rule: if someone new joins the team,
+              they should be able to open the repo, run a command or two, and
+              actually understand what’s going on without a 40-minute speech.
             </p>
             <ul class="about-list">
-              <li><span>Location:</span> Virginia, USA (but always down to travel)</li>
+              <li><span>Location:</span> Virginia, USA (always planning the next trip)</li>
               <li><span>School:</span> Virginia Tech · B.S. in Computer Science</li>
               <li><span>Focus:</span> AI engineering, data workflows, platform tools</li>
-              <li><span>Currently:</span> chasing AI / systems internships for Summer 2026</li>
+              <li><span>Currently:</span> building more AI + systems projects and applying for Summer 2026 roles</li>
             </ul>
           </div>
           <div class="about-card">
@@ -1169,15 +1170,15 @@
                 <span>Frontend:</span> React basics, HTML/CSS, simple dashboards
               </li>
               <li>
-                <span>Cloud & tooling:</span> AWS, Git, GitHub, CLI-first workflows,
+                <span>Cloud & tooling:</span> AWS, Git, GitHub, CLI-first flows,
                 GitHub Pages
               </li>
             </ul>
             <p style="margin-top: 8px;">
-              I’m especially happy in roles where I can touch both models and
-              infrastructure: think embeddings + vector search, but also logs,
-              metrics, and the boring reliability work that keeps everything
-              running.
+              I’m especially happy in roles where I can mix “fun ML things” with
+              “boring but crucial infra things” – using embeddings and models, but
+              also caring about logs, latency, and making sure everything survives
+              real users.
             </p>
           </div>
         </div>
@@ -1200,34 +1201,34 @@
     function respondToChat(query) {
       const q = (query || "").toLowerCase();
       if (!q.trim()) {
-        return "Ask me about semantic search, queues, dashboards, VT, or what kind of roles I’m going after.";
+        return "Ask me about semantic search, queues, dashboards, Virginia Tech, or what kind of roles I’m going after.";
       }
 
       if (q.includes("semantic") || q.includes("search") || q.includes("faiss")) {
-        return "I built a semantic search project in Python using a SentenceTransformers model for embeddings and FAISS as the vector index. It’s small on purpose so you can follow a query from raw text all the way to the top-k results.";
+        return "I built a semantic search project in Python using a SentenceTransformers model for embeddings and FAISS as the vector index. Everything is kept small and traceable so you can follow a query from text all the way to the top-k results without needing a PhD.";
       }
 
       if (q.includes("queue") || q.includes("redis") || q.includes("worker")) {
-        return "Yep, I have a Node.js + Redis project where every retrieval request becomes a job in a queue. Workers process jobs in the background and a React dashboard shows status and basic throughput so you’re not guessing what’s stuck.";
+        return "Yes, I have a Node.js + Redis project where each retrieval request becomes a job in a queue. Workers pick up jobs in the background, and a React dashboard shows status and basic throughput so nothing silently gets stuck.";
       }
 
       if (q.includes("dashboard") || q.includes("viz") || q.includes("visualizer")) {
-        return "I like building dashboards that are simple but honest: job counts, rough latency buckets, and success/error rates. The idea is to make debugging feel less like guessing and more like reading a story.";
+        return "I like dashboards that are simple but honest: job counts, rough latency, success vs. error. The goal is to make debugging feel like reading a story, not doing detective work at 3 a.m.";
       }
 
       if (q.includes("school") || q.includes("vt") || q.includes("virginia tech")) {
-        return "I’m a CS student at Virginia Tech, leaning into AI, data-heavy systems, and backend work. When I’m not coding, I’m probably running, traveling, or hunting for good food.";
+        return "I’m a CS student at Virginia Tech, leaning into AI, data-heavy systems, and backend work. Outside of code, I love traveling, running, and finding good food wherever I end up.";
       }
 
       if (q.includes("tech") || q.includes("stack") || q.includes("tools")) {
-        return "My main stack: Python, Java, and JavaScript/TypeScript. For AI/data: Pandas, NumPy, SentenceTransformers. For backend: Node.js, Express, Redis, REST APIs. For infra: AWS, Git, GitHub, and a lot of CLI.";
+        return "My go-to stack: Python, Java, and JavaScript/TypeScript. For AI/data I use Pandas, NumPy, and SentenceTransformers. For backend: Node.js, Express, Redis, REST APIs. For infra: AWS, Git, GitHub, and a lot of CLI.";
       }
 
       if (q.includes("intern") || q.includes("role") || q.includes("job")) {
-        return "I’m targeting AI engineering and systems-style internships for Summer 2026 – roles that live between ML, data pipelines, and platform engineering.";
+        return "I’m targeting AI engineering and systems-style internships for Summer 2026 – roles that sit between ML, data pipelines, and platform engineering so I can use both my AI brain and my reliability brain.";
       }
 
-      return "Short version: I’m a VT CS student who likes AI + systems. Ask about semantic search, queues, dashboards, or my stack, and I’ll point you to the right project.";
+      return "Short version: I’m a VT CS student who likes AI + systems and cares a lot about reliability. Ask about semantic search, queues, dashboards, or my stack, and I’ll point you to the right part of this site.";
     }
 
     chatSend.addEventListener("click", () => {
