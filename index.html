@@ -1,25 +1,32 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thanvi Ravala | Systems & AI Projects</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Thanvi Ravala | AI Systems & Live Demos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #02030a;
-      --bg-panel: #050814;
-      --bg-elevated: #070a16;
-      --fg-main: #f9fafb;
-      --fg-muted: #9ca3af;
-      --accent: #ef233c; /* red, but slightly softer than pure Tesla red */
-      --accent-soft: rgba(239, 35, 60, 0.16);
-      --border-subtle: rgba(148, 163, 184, 0.35);
-      --radius-lg: 18px;
+      --bg: #f5f5f7;
+      --panel: #ffffff;
+      --fg-main: #111827;
+      --fg-muted: #6b7280;
+      --fg-soft: #9ca3af;
+      --accent: #d0102a; /* Tesla red inspired */
+      --accent-soft: rgba(208, 16, 42, 0.07);
+      --border-subtle: rgba(17, 24, 39, 0.08);
+      --radius-lg: 20px;
       --radius-pill: 999px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.18);
     }
 
     * {
@@ -29,13 +36,13 @@
     }
 
     body {
-      font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
+        sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(239, 35, 60, 0.12) 0, transparent 45%),
-        radial-gradient(circle at bottom right, rgba(15, 118, 110, 0.24) 0, transparent 55%),
+        radial-gradient(circle at top, rgba(0, 0, 0, 0.12), transparent 52%),
         var(--bg);
       color: var(--fg-main);
-      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
       min-height: 100vh;
     }
 
@@ -45,540 +52,1463 @@
     }
 
     .page {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 28px 18px 64px;
+      padding: 20px 18px 60px;
     }
 
-    /* Top “status bar” */
+    /* Top nav */
 
-    .status-bar {
+    .top-nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 20px;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--fg-muted);
+      gap: 18px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      position: sticky;
+      top: 12px;
+      z-index: 20;
+      backdrop-filter: blur(16px);
     }
 
-    .status-left {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
-      white-space: nowrap;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.24);
-    }
-
-    .status-right {
-      border-radius: var(--radius-pill);
-      padding: 4px 10px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: rgba(15, 23, 42, 0.75);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.72rem;
-    }
-
-    .status-tag {
-      padding: 3px 8px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-    }
-
-    /* Layout */
-
-    header {
-      display: grid;
-      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
-      gap: 32px;
-      margin-bottom: 36px;
-      align-items: center;
-    }
-
-    @media (max-width: 800px) {
-      header {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .intro-eyebrow {
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 4vw, 2.9rem);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      margin-bottom: 4px;
-    }
-
-    .intro-role {
-      font-size: 0.92rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--fg-muted);
-      margin-bottom: 14px;
-    }
-
-    .tagline {
-      font-size: 0.98rem;
-      color: #e5e7eb;
-      margin-bottom: 10px;
-    }
-
-    .meta {
-      font-size: 0.9rem;
-      color: var(--fg-muted);
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
       gap: 8px;
-      margin-top: 14px;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
     }
 
-    .pill {
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      padding: 4px 10px;
-      font-size: 0.8rem;
-      color: #e5e7eb;
-      background: rgba(5, 10, 25, 0.92);
-      backdrop-filter: blur(8px);
-    }
-
-    .links {
+    .brand-badge {
+      width: 22px;
+      height: 22px;
+      border-radius: 8px;
+      background: radial-gradient(circle at 30% 0, #ffffff 0, #d0102a 55%);
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .btn {
-      display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      border-radius: var(--radius-pill);
-      font-size: 0.9rem;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      background: rgba(5, 10, 25, 0.95);
-      cursor: pointer;
-      transition:
-        transform 0.12s ease,
-        box-shadow 0.12s ease,
-        border 0.12s ease,
-        background 0.12s ease;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(208, 16, 42, 0.6);
     }
 
-    .btn-primary {
-      background: radial-gradient(circle at 10% 0, #f97316 0, #ef233c 45%, #111827 90%);
-      border-color: transparent;
-      color: #f9fafb;
-      font-weight: 600;
-      box-shadow: 0 14px 40px rgba(239, 35, 60, 0.45);
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--fg-muted);
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.7);
-      border-color: rgba(209, 213, 219, 0.9);
-    }
-
-    .btn-primary:hover {
-      box-shadow: 0 18px 46px rgba(239, 35, 60, 0.6);
-    }
-
-    .hero-panel {
-      border-radius: var(--radius-lg);
-      padding: 16px 18px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: linear-gradient(
-        135deg,
-        rgba(15, 23, 42, 0.96),
-        rgba(0, 0, 0, 0.96)
-      );
+    .nav-links a {
       position: relative;
-      overflow: hidden;
+      padding-bottom: 3px;
     }
 
-    .hero-panel::before {
+    .nav-links a::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background-image: linear-gradient(
-        120deg,
-        rgba(148, 163, 184, 0.09) 1px,
-        transparent 1px
-      );
-      background-size: 24px 24px;
-      opacity: 0.5;
-      mix-blend-mode: soft-light;
-      pointer-events: none;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--accent);
+      transition: width 0.18s ease;
     }
 
-    .hero-panel-inner {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
-    .hero-metric-row {
+    .nav-actions {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       gap: 8px;
-      font-size: 0.78rem;
-      color: var(--fg-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
     }
 
-    .hero-metric-tag {
+    .chip {
       border-radius: var(--radius-pill);
-      padding: 3px 9px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: rgba(5, 10, 25, 0.95);
-    }
-
-    .hero-diagram {
-      margin-top: 10px;
-      padding: 10px 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: radial-gradient(circle at top left, var(--accent-soft), rgba(15, 23, 42, 0.98));
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.76rem;
+      padding: 4px 10px;
+      background: #0f172a;
       color: #e5e7eb;
-      overflow-x: auto;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
     }
 
-    main {
+    .nav-btn {
+      border-radius: var(--radius-pill);
+      padding: 6px 14px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: #ffffff;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition:
+        box-shadow 0.13s ease,
+        transform 0.13s ease,
+        border 0.13s ease,
+        background 0.13s ease;
+    }
+
+    .nav-btn.primary {
+      background: linear-gradient(120deg, #111827, #000000);
+      color: #f9fafb;
+      border-color: transparent;
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.7);
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+      border-color: rgba(148, 163, 184, 0.9);
+      background: #f9fafb;
+    }
+
+    .nav-btn.primary:hover {
+      background: linear-gradient(120deg, #000000, #111827);
+    }
+
+    @media (max-width: 840px) {
+      .top-nav {
+        padding-inline: 14px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .top-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-actions {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Hero */
+
+    .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.1fr);
-      gap: 28px;
-      margin-top: 10px;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 32px;
+      margin-top: 32px;
+      align-items: center;
     }
 
-    @media (max-width: 900px) {
-      main {
+    @media (max-width: 860px) {
+      .hero {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    .section-title {
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
+    .hero-eyebrow {
+      font-size: 0.82rem;
       text-transform: uppercase;
-      color: var(--fg-muted);
+      letter-spacing: 0.28em;
+      color: var(--fg-soft);
       margin-bottom: 10px;
     }
 
-    .section-subtitle {
+    .hero-eyebrow span {
+      color: var(--accent);
+    }
+
+    .hero-title {
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--fg-muted);
+      margin-bottom: 16px;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      max-width: 34rem;
+      color: #111827;
+      margin-bottom: 10px;
+    }
+
+    .hero-meta {
       font-size: 0.9rem;
       color: var(--fg-muted);
       margin-bottom: 18px;
     }
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 14px;
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
     }
 
-    @media (min-width: 720px) {
-      .card-grid {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    .hero-pill {
+      border-radius: var(--radius-pill);
+      padding: 5px 12px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(255, 255, 255, 0.85);
+      font-size: 0.8rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .hero-secondary {
+      font-size: 0.8rem;
+      color: var(--fg-soft);
+    }
+
+    .hero-secondary span {
+      color: var(--accent);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      border-radius: 28px;
+      background: radial-gradient(circle at top, #ffffff 0, #e5e7eb 40%, #d1d5db 90%);
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.42);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: 16px;
+      align-items: center;
+    }
+
+    @media (max-width: 620px) {
+      .hero-card {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    .card {
-      border-radius: var(--radius-lg);
-      padding: 16px 16px 14px;
-      background: radial-gradient(circle at top left, var(--accent-soft), var(--bg-elevated));
-      border: 1px solid var(--border-subtle);
+    .hero-photo-wrap {
       display: flex;
-      flex-direction: column;
-      gap: 6px;
-      transition:
-        transform 0.12s ease,
-        box-shadow 0.12s ease,
-        border 0.12s ease,
-        background 0.12s ease;
-      position: relative;
-      overflow: hidden;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
     }
 
-    .card::after {
+    .hero-photo-inner {
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.5);
+      border: 4px solid #ffffff;
+      background: #000000;
+    }
+
+    .hero-photo-inner::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(120deg, rgba(255, 255, 255, 0.04), transparent 55%);
-      opacity: 0;
-      transition: opacity 0.18s ease;
+      background: radial-gradient(circle at 20% 0, rgba(255, 255, 255, 0.35), transparent 45%);
+      mix-blend-mode: screen;
       pointer-events: none;
     }
 
-    .card:hover {
-      transform: translateY(-2px) translateZ(0);
-      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.95);
-      border-color: rgba(248, 250, 252, 0.95);
-      background: radial-gradient(circle at top left, rgba(248, 113, 113, 0.32), #020617);
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .card:hover::after {
-      opacity: 1;
+    .hero-photo-tag {
+      position: absolute;
+      bottom: 14px;
+      left: 16px;
+      border-radius: var(--radius-pill);
+      padding: 5px 10px;
+      background: rgba(17, 24, 39, 0.92);
+      color: #f9fafb;
+      font-size: 0.74rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(148, 163, 184, 0.6);
     }
 
-    .card-header-row {
+    .hero-photo-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.28);
+    }
+
+    .hero-specs {
+      display: grid;
+      gap: 10px;
+    }
+
+    .hero-spec-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--fg-muted);
+    }
+
+    .hero-spec-main {
+      font-size: 0.96rem;
+      margin-bottom: 2px;
+    }
+
+    .hero-spec-sub {
+      font-size: 0.86rem;
+      color: var(--fg-soft);
+    }
+
+    .spec-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .spec-pill {
+      border-radius: 16px;
+      padding: 6px 10px;
+      background: #111827;
+      color: #f9fafb;
+      font-size: 0.78rem;
+    }
+
+    .spec-pill span {
+      color: #9ca3af;
+    }
+
+    /* Sections */
+
+    .section {
+      margin-top: 46px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-end;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+      padding-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--fg-muted);
+    }
+
+    .section-sub {
+      font-size: 0.88rem;
+      color: var(--fg-soft);
+    }
+
+    @media (max-width: 640px) {
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* Demos grid */
+
+    .demos-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 960px) {
+      .demos-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .panel {
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+      padding: 16px 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .panel-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 8px;
     }
 
-    .card-title {
+    .panel-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .panel-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--fg-soft);
+    }
+
+    .panel-desc {
+      font-size: 0.86rem;
+      color: var(--fg-muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .tiny-pill {
+      border-radius: 999px;
+      padding: 2px 8px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.72rem;
+      color: var(--fg-soft);
+    }
+
+    .demo-body {
+      border-radius: 14px;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      padding: 10px;
+      font-size: 0.84rem;
+      background: var(--accent-soft);
+    }
+
+    .demo-body-inner {
+      background: #0b1120;
+      color: #e5e7eb;
+      border-radius: 12px;
+      padding: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 0.78rem;
+      display: grid;
+      gap: 8px;
+    }
+
+    .demo-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+      color: #9ca3af;
+    }
+
+    .demo-input-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .demo-input-row input {
+      flex: 1;
+      padding: 6px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: #f9fafb;
+      font-family: inherit;
+      font-size: 0.78rem;
+      outline: none;
+    }
+
+    .demo-input-row button {
+      border-radius: 999px;
+      padding: 6px 10px;
+      border: 1px solid rgba(248, 250, 252, 0.8);
+      background: linear-gradient(120deg, #d0102a, #b91c1c);
+      color: #f9fafb;
+      font-size: 0.76rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .demo-output {
+      min-height: 46px;
+      border-radius: 10px;
+      border: 1px dashed rgba(148, 163, 184, 0.8);
+      padding: 6px 8px;
+      background: rgba(15, 23, 42, 0.78);
+      color: #e5e7eb;
+    }
+
+    .demo-output span {
+      color: #a5b4fc;
+    }
+
+    .demo-hint {
+      font-size: 0.7rem;
+      color: #9ca3af;
+    }
+
+    .demo-docs {
+      display: grid;
+      gap: 4px;
+    }
+
+    .demo-doc {
+      font-size: 0.78rem;
+      padding: 4px 6px;
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .demo-doc strong {
+      color: #e5e7eb;
+    }
+
+    .demo-doc span {
+      color: #9ca3af;
+    }
+
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .slider-row input[type="range"] {
+      flex: 1;
+    }
+
+    .slider-pill {
+      border-radius: 999px;
+      padding: 4px 10px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      font-size: 0.72rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .viz-summary {
+      font-size: 0.78rem;
+      color: #d1d5db;
+    }
+
+    /* Embedding animation dots */
+
+    .dot-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 10px);
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #1f2937;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at 30% 0, #facc15, #d0102a);
+      opacity: 0;
+      animation: pulse 2.4s infinite;
+    }
+
+    .dot:nth-child(3)::after,
+    .dot:nth-child(7)::after,
+    .dot:nth-child(11)::after,
+    .dot:nth-child(16)::after {
+      animation-delay: 0.3s;
+    }
+
+    .dot:nth-child(5)::after,
+    .dot:nth-child(9)::after,
+    .dot:nth-child(13)::after {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        opacity: 0.2;
+        transform: scale(0.9);
+      }
+      35% {
+        opacity: 1;
+        transform: scale(1.06);
+      }
+    }
+
+    /* Projects */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 780px) {
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .project-card {
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      border: 1px solid var(--border-subtle);
+      padding: 16px 16px 14px;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease,
+        border 0.16s ease;
+    }
+
+    .project-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        110deg,
+        rgba(255, 255, 255, 0.12),
+        transparent 55%
+      );
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.16s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 46px rgba(15, 23, 42, 0.24);
+      border-color: rgba(15, 23, 42, 0.5);
+    }
+
+    .project-card:hover::after {
+      opacity: 1;
+    }
+
+    .project-top-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .project-name {
       font-size: 0.98rem;
       font-weight: 600;
     }
 
-    .card-label {
-      font-size: 0.7rem;
+    .project-label {
+      font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
+      color: var(--fg-soft);
+    }
+
+    .project-desc {
+      font-size: 0.86rem;
       color: var(--fg-muted);
     }
 
-    .card-tagline {
-      font-size: 0.9rem;
-      color: #e5e7eb;
-    }
-
-    .card-meta {
+    .project-meta {
       font-size: 0.8rem;
-      color: var(--fg-muted);
+      color: var(--fg-soft);
     }
 
-    .card-tags {
+    .project-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 4px;
+      margin-top: 2px;
     }
 
-    .card-pill {
-      border-radius: var(--radius-pill);
+    .project-pill {
+      border-radius: 999px;
       padding: 2px 8px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      font-size: 0.75rem;
-      color: #e5e7eb;
-      background: rgba(5, 10, 25, 0.97);
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      font-size: 0.74rem;
+      color: var(--fg-soft);
     }
 
-    .sidebar-card {
+    .project-cta {
+      margin-top: 6px;
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    /* About */
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .about-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .about-card {
       border-radius: var(--radius-lg);
+      background: var(--panel);
+      border: 1px solid var(--border-subtle);
       padding: 16px 16px 14px;
-      background: var(--bg-panel);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      margin-bottom: 14px;
-    }
-
-    .sidebar-card p {
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
       font-size: 0.9rem;
-      color: #d1d5db;
-      margin-bottom: 10px;
-    }
-
-    .sidebar-list {
-      list-style: none;
-      font-size: 0.85rem;
       color: var(--fg-muted);
     }
 
-    .sidebar-list li {
-      margin-bottom: 5px;
+    .about-card h3 {
+      font-size: 0.94rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 10px;
+      color: var(--fg-main);
+    }
+
+    .about-card p + p {
+      margin-top: 8px;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 8px;
+      font-size: 0.86rem;
+    }
+
+    .about-list li {
+      margin-bottom: 6px;
+      color: var(--fg-muted);
+    }
+
+    .about-list span {
+      color: var(--fg-main);
+      font-weight: 500;
     }
 
     footer {
       margin-top: 40px;
-      font-size: 0.78rem;
-      color: #6b7280;
+      padding-top: 14px;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
       display: flex;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
-      border-top: 1px solid rgba(31, 41, 55, 0.9);
-      padding-top: 14px;
-      margin-top: 32px;
+      font-size: 0.78rem;
+      color: var(--fg-soft);
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <!-- STATUS BAR -->
-    <div class="status-bar">
-      <div class="status-left">
-        <span class="status-dot"></span>
-        <span>Portfolio console · v1.0</span>
+    <header class="top-nav">
+      <div class="brand">
+        <div class="brand-badge">TR</div>
+        <span>AI systems / portfolio</span>
       </div>
-      <div class="status-right">
-        <span class="status-tag">AI / Backend</span>
-        <span>Systems · Telemetry · Search</span>
-      </div>
-    </div>
-
-    <!-- HEADER -->
-    <header>
-      <div>
-        <div class="intro-eyebrow">AI, data, and systems engineering</div>
-        <h1>Thanvi Ravala</h1>
-        <div class="intro-role">Computer Science · Virginia Tech</div>
-        <p class="tagline">
-          I like taking messy data paths and turning them into clean, reliable systems — from semantic search engines to fleet-style retrieval platforms.
-        </p>
-        <p class="meta">
-          Focus areas: AI engineering, backend infrastructure, and cloud DevOps.
-        </p>
-        <div class="pill-row">
-          <div class="pill">Semantic search</div>
-          <div class="pill">Distributed queues</div>
-          <div class="pill">Python · Node.js · Java</div>
-          <div class="pill">AWS · GitHub</div>
-        </div>
-        <div class="links">
-          <a class="btn btn-primary" href="https://www.linkedin.com/in/thanviravala" target="_blank" rel="noreferrer">
-            View LinkedIn
-          </a>
-          <a class="btn" href="mailto:thanviravala3@gmail.com">
-            Email me
-          </a>
-        </div>
-      </div>
-
-      <!-- Right hero panel with “Tesla-ish” system diagram -->
-      <div class="hero-panel">
-        <div class="hero-panel-inner">
-          <div class="hero-metric-row">
-            <span class="hero-metric-tag">Recent focus</span>
-            <span>retrieval pipelines · job queues · dashboards</span>
-          </div>
-          <div class="hero-diagram">
-            <pre>[ dashboard ]  ──►  [ API gateway ]  ──►  [ queue ]
-         ▲                         │
-         │                         ▼
-      status ◄──────────── [ workers + storage ]</pre>
-          </div>
-          <div class="hero-metric-row">
-            <span class="hero-metric-tag">building for</span>
-            <span>observability · low latency · fault tolerance</span>
-          </div>
-        </div>
+      <nav class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#demos">Live demos</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="chip">Summer 2026 · Intern</div>
+        <a
+          class="nav-btn primary"
+          href="https://www.linkedin.com/in/thanviravala"
+          target="_blank"
+          rel="noreferrer"
+        >
+          LinkedIn
+        </a>
+        <a
+          class="nav-btn"
+          href="https://github.com/thanviravala3-ui"
+          target="_blank"
+          rel="noreferrer"
+        >
+          GitHub
+        </a>
       </div>
     </header>
 
-    <!-- MAIN CONTENT -->
     <main>
-      <!-- PROJECTS -->
-      <section>
-        <h2 class="section-title">Selected projects</h2>
-        <p class="section-subtitle">
-          A few recent repos that show how I think about building systems — clear structure, reliable pipelines, and practical use cases.
-        </p>
+      <!-- HERO -->
+      <section id="overview" class="hero">
+        <div>
+          <div class="hero-eyebrow">
+            <span>AI-driven portfolio</span> · live demos
+          </div>
+          <h1 class="hero-title">Thanvi Ravala</h1>
+          <div class="hero-subtitle">
+            Computer Science · Virginia Tech · AI & Systems
+          </div>
+          <p class="hero-tagline">
+            I like building production-style systems that take messy data paths
+            and turn them into clean, observable pipelines: semantic search
+            engines, retrieval platforms, and ML-powered tools.
+          </p>
+          <p class="hero-meta">
+            This site is wired with live, in-browser demos – a chatbot that talks
+            through my work, a semantic search sandbox, and lightweight model
+            visualizers inspired by real fleet telemetry dashboards.
+          </p>
 
-        <div class="card-grid">
-          <!-- Project 1: Semantic search over technical notes -->
-          <a class="card" href="https://github.com/thanviravala3-ui/semantic-search-technical-notes" target="_blank" rel="noreferrer">
-            <div class="card-header-row">
-              <div>
-                <div class="card-title">Semantic Search for Technical Notes</div>
+          <div class="hero-badges">
+            <div class="hero-pill">Semantic search & retrieval</div>
+            <div class="hero-pill">Python · Node.js · Java</div>
+            <div class="hero-pill">AWS · GitHub · CLI</div>
+          </div>
+
+          <div class="hero-actions">
+            <a
+              class="nav-btn primary"
+              href="#demos"
+            >
+              Try the live demos
+            </a>
+            <a
+              class="nav-btn"
+              href="mailto:thanviravala3@gmail.com"
+            >
+              Email me
+            </a>
+          </div>
+          <div class="hero-secondary">
+            Built for teams that care about
+            <span>latency, reliability, and real-world data.</span>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-photo-wrap">
+              <div class="hero-photo-inner">
+                <!-- Make sure thanvi.jpg is in the same folder as this HTML file -->
+                <img
+                  src="thanvi.jpg"
+                  alt="Photo of Thanvi Ravala"
+                  class="hero-photo"
+                />
+                <div class="hero-photo-tag">
+                  <span class="hero-photo-tag-dot"></span>
+                  <span>Portfolio · Online · v1.0</span>
+                </div>
               </div>
-              <div class="card-label">Retrieval · Python</div>
             </div>
-            <div class="card-tagline">
-              Small semantic search engine for CAD part descriptions and engineering notes using text embeddings and a FAISS vector index.
+
+            <div class="hero-specs">
+              <div>
+                <div class="hero-spec-label">Focus areas</div>
+                <div class="hero-spec-main">
+                  AI engineering, backend systems, and platform tools.
+                </div>
+                <div class="hero-spec-sub">
+                  From embeddings and vector search to queues, workers, and
+                  dashboards.
+                </div>
+              </div>
+              <div>
+                <div class="hero-spec-label">Current “range”</div>
+                <div class="spec-row">
+                  <div class="spec-pill">
+                    2025–2027
+                    <span> · VT CS + AI / data focus</span>
+                  </div>
+                  <div class="spec-pill">
+                    Live demos
+                    <span> · chatbot, search, viz</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="hero-spec-label">Built like a fleet</div>
+                <div class="hero-spec-sub">
+                  Small tools, wired together: CLI prototypes, retrieval
+                  services, and simple frontends that make the models
+                  understandable.
+                </div>
+              </div>
             </div>
-            <div class="card-meta">Python · SentenceTransformers · FAISS</div>
-            <div class="card-tags">
-              <span class="card-pill">Embeddings</span>
-              <span class="card-pill">Vector search</span>
-              <span class="card-pill">CLI workflow</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIVE DEMOS -->
+      <section id="demos" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Live demos</h2>
+          <p class="section-sub">
+            A lightweight playground to poke at how I think about AI systems –
+            all running directly in the browser for quick inspection.
+          </p>
+        </div>
+
+        <div class="demos-grid">
+          <!-- Left column: chatbot + semantic search -->
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Project explainer chatbot</div>
+                <div class="panel-desc">
+                  Ask about my work and this small scripted bot routes you to
+                  the right project and tech stack.
+                </div>
+              </div>
+              <div class="panel-label">Chat · In-browser</div>
             </div>
+            <div class="pill-row">
+              <div class="tiny-pill">Rule-based router</div>
+              <div class="tiny-pill">Projects Q&A</div>
+              <div class="tiny-pill">No backend</div>
+            </div>
+
+            <div class="demo-body">
+              <div class="demo-body-inner">
+                <div class="demo-label">Chat with the portfolio</div>
+                <div class="demo-input-row">
+                  <input
+                    type="text"
+                    id="chat-input"
+                    placeholder="Ask: “What’s your semantic search project?”"
+                  />
+                  <button id="chat-send">Send</button>
+                </div>
+                <div id="chat-output" class="demo-output">
+                  <span>bot:</span> ask me about semantic search, distributed
+                  queues, or what I like to build.
+                </div>
+                <div class="demo-hint">
+                  Example prompts: “How did you build semantic search?”, “Do
+                  you know queues?”, “What tech do you use?”
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-header" style="margin-top: 16px;">
+              <div>
+                <div class="panel-title">Semantic search demo</div>
+                <div class="panel-desc">
+                  A tiny search box over a few project “notes” that simulates
+                  relevance scoring with in-browser ranking.
+                </div>
+              </div>
+              <div class="panel-label">Search · Ranking</div>
+            </div>
+            <div class="pill-row">
+              <div class="tiny-pill">Keyword scoring</div>
+              <div class="tiny-pill">Project notes</div>
+              <div class="tiny-pill">Top-3 results</div>
+            </div>
+
+            <div class="demo-body">
+              <div class="demo-body-inner">
+                <div class="demo-label">Search my project notes</div>
+                <div class="demo-input-row">
+                  <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Try: “FAISS embeddings” or “job queue dashboard”"
+                  />
+                  <button id="search-run">Search</button>
+                </div>
+                <div id="search-results" class="demo-docs">
+                  <!-- Populated by JS -->
+                </div>
+                <div class="demo-hint">
+                  This is a front-end approximation of semantic search –
+                  production versions use embeddings + FAISS in Python.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right column: visualizer, embedding animation, playground -->
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Model depth visualizer</div>
+                <div class="panel-desc">
+                  Slide through “layers” and watch how latency, explainability,
+                  and capacity trade off.
+                </div>
+              </div>
+              <div class="panel-label">Viz · Tradeoffs</div>
+            </div>
+            <div class="pill-row">
+              <div class="tiny-pill">Latency vs. depth</div>
+              <div class="tiny-pill">Toy metrics</div>
+            </div>
+
+            <div class="demo-body">
+              <div class="demo-body-inner">
+                <div class="demo-label">Depth slider</div>
+                <div class="slider-row">
+                  <input
+                    type="range"
+                    id="depth-slider"
+                    min="1"
+                    max="12"
+                    value="4"
+                  />
+                  <div class="slider-pill" id="depth-pill">
+                    depth: 4 · est. latency ~62ms
+                  </div>
+                </div>
+                <div id="depth-summary" class="viz-summary">
+                  Balanced profile: good capacity with comfortable latency and
+                  decent interpretability.
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-header" style="margin-top: 16px;">
+              <div>
+                <div class="panel-title">Embeddings flow & playground</div>
+                <div class="panel-desc">
+                  Animated “vector grid” plus quick shortcuts that wire into the
+                  chatbot and search demo.
+                </div>
+              </div>
+              <div class="panel-label">Embeddings · UX</div>
+            </div>
+            <div class="pill-row">
+              <div class="tiny-pill">Vector grid</div>
+              <div class="tiny-pill">Interaction shortcuts</div>
+            </div>
+
+            <div class="demo-body">
+              <div class="demo-body-inner">
+                <div class="demo-label">Embedding space (stylized)</div>
+                <div class="dot-grid">
+                  <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                  <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                  <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                  <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                </div>
+                <div class="demo-hint">
+                  Each “lit” dot represents an activated region in a simplified
+                  embedding space for different technical notes.
+                </div>
+
+                <div style="margin-top: 10px;">
+                  <div class="demo-label">Playground shortcuts</div>
+                  <div class="pill-row">
+                    <button
+                      class="demo-input-row"
+                      id="btn-semantic"
+                      style="border-radius:999px;border:1px solid rgba(148,163,184,0.7);background:#020617;padding:4px 10px;font-size:0.74rem;color:#e5e7eb;cursor:pointer;"
+                    >
+                      Ask about semantic search
+                    </button>
+                    <button
+                      class="demo-input-row"
+                      id="btn-queues"
+                      style="border-radius:999px;border:1px solid rgba(148,163,184,0.7);background:#020617;padding:4px 10px;font-size:0.74rem;color:#e5e7eb;cursor:pointer;"
+                    >
+                      Ask about queues & workers
+                    </button>
+                    <button
+                      class="demo-input-row"
+                      id="btn-dashboard"
+                      style="border-radius:999px;border:1px solid rgba(148,163,184,0.7);background:#020617;padding:4px 10px;font-size:0.74rem;color:#e5e7eb;cursor:pointer;"
+                    >
+                      Search “status dashboard”
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 12px; font-size: 0.8rem; color: var(--fg-soft);">
+              This column mirrors the kind of quick, inspectable tools I like
+              building for internal teams – fast to open, easy to reason about,
+              and directly tied to real metrics.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Selected projects</h2>
+          <p class="section-sub">
+            Small, focused repos that show how I think about retrieval, queues,
+            and developer-facing UX.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <a
+            class="project-card"
+            href="https://github.com/thanviravala3-ui/semantic-search-technical-notes"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="project-top-row">
+              <div>
+                <div class="project-name">
+                  Semantic Search for Technical Notes
+                </div>
+                <div class="project-desc">
+                  A compact semantic search engine over CAD part descriptions
+                  and engineering notes. Uses pre-trained SentenceTransformers
+                  embeddings and a FAISS index to return context-aware results
+                  from natural language queries.
+                </div>
+              </div>
+              <div class="project-label">Retrieval · Python</div>
+            </div>
+            <div class="project-meta">
+              Clear data pipeline, explainable index artifacts, and a CLI-style
+              query interface for fast iteration.
+            </div>
+            <div class="project-tags">
+              <span class="project-pill">Python · SentenceTransformers</span>
+              <span class="project-pill">FAISS</span>
+              <span class="project-pill">CLI workflow</span>
+            </div>
+            <div class="project-cta">Open on GitHub →</div>
           </a>
 
-          <!-- Project 2: Fleet-style distributed retrieval platform -->
-          <a class="card" href="https://github.com/thanviravala3-ui/fleet-semantic-platform" target="_blank" rel="noreferrer">
-            <div class="card-header-row">
+          <a
+            class="project-card"
+            href="https://github.com/thanviravala3-ui/fleet-semantic-platform"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="project-top-row">
               <div>
-                <div class="card-title">Fleet-Style Semantic Platform</div>
+                <div class="project-name">Fleet-style Semantic Platform</div>
+                <div class="project-desc">
+                  Node.js backend with a Redis job queue and React dashboard for
+                  tracking retrieval jobs. Mimics a simplified fleet telemetry
+                  view where every request becomes a traceable unit of work.
+                </div>
               </div>
-              <div class="card-label">Queues · Node.js</div>
+              <div class="project-label">Queues · Full stack</div>
             </div>
-            <div class="card-tagline">
-              Distributed retrieval + API system with a Rails-style Node.js backend, Redis job queue, JWT auth, and a React dashboard for job status.
+            <div class="project-meta">
+              JWT-authenticated API, background workers, and a simple web UI for
+              visibility into status and throughput.
             </div>
-            <div class="card-meta">Node.js · Redis · React · JWT</div>
-            <div class="card-tags">
-              <span class="card-pill">Distributed systems</span>
-              <span class="card-pill">Queues & workers</span>
-              <span class="card-pill">Full-stack dashboard</span>
+            <div class="project-tags">
+              <span class="project-pill">Node.js · Express</span>
+              <span class="project-pill">Redis · queues</span>
+              <span class="project-pill">React dashboard</span>
             </div>
+            <div class="project-cta">Open on GitHub →</div>
           </a>
         </div>
       </section>
 
-      <!-- SIDEBAR -->
-      <aside>
-        <div class="sidebar-card">
-          <h3 class="section-title">About</h3>
-          <p>
-            I’m a CS student at Virginia Tech who likes building things that feel useful: search tools, internal dashboards, and backend services that keep data moving reliably.
+      <!-- ABOUT -->
+      <section id="about" class="section">
+        <div class="section-header">
+          <h2 class="section-title">About & stack</h2>
+          <p class="section-sub">
+            Where I’m based, what I’m studying, and the tools I keep reaching
+            for when building systems like the ones above.
           </p>
-          <ul class="sidebar-list">
-            <li>📍 Based in Virginia</li>
-            <li>🎓 B.S. Computer Science, Virginia Tech</li>
-            <li>⚙️ Interested in AI, data, and platform engineering</li>
-          </ul>
         </div>
 
-        <div class="sidebar-card">
-          <h3 class="section-title">Tech I use</h3>
-          <ul class="sidebar-list">
-            <li>Python (Pandas, NumPy, basic ML)</li>
-            <li>Node.js & Express, REST APIs</li>
-            <li>Redis, queues, background workers</li>
-            <li>Java (OOP, data structures)</li>
-            <li>Git, GitHub, CLI tools</li>
-          </ul>
+        <div class="about-layout">
+          <div class="about-card">
+            <h3>Profile</h3>
+            <p>
+              I’m a Computer Science student at Virginia Tech, focused on AI
+              engineering, data workflows, and backend systems. I like projects
+              that sit between models and infrastructure: retrieval pipelines,
+              internal dashboards, and tools that help teams understand what
+              their models are actually doing.
+            </p>
+            <p>
+              This portfolio follows the same philosophy: everything that looks
+              like a “card” or “panel” is wired up to some kind of interaction –
+              chat, search, sliders, or shortcuts – so you can inspect the
+              system instead of just reading about it.
+            </p>
+            <ul class="about-list">
+              <li><span>Location:</span> Virginia, USA</li>
+              <li><span>School:</span> Virginia Tech · B.S. in Computer Science</li>
+              <li><span>Focus:</span> AI engineering, data, and platform tools</li>
+              <li><span>Currently:</span> Building out more live demos + infra-style projects</li>
+            </ul>
+          </div>
+          <div class="about-card">
+            <h3>Tech I use</h3>
+            <ul class="about-list">
+              <li>
+                <span>Languages:</span> Python, Java, JavaScript/TypeScript, basic
+                SQL
+              </li>
+              <li>
+                <span>AI / data:</span> Pandas, NumPy, SentenceTransformers,
+                basic ML workflows
+              </li>
+              <li>
+                <span>Backend:</span> Node.js, Express, REST APIs, Redis queues,
+                background workers
+              </li>
+              <li>
+                <span>Frontend:</span> React basics, HTML/CSS, simple dashboards
+              </li>
+              <li>
+                <span>Cloud & tooling:</span> AWS, Git, GitHub, CLI flows, GitHub
+                Pages
+              </li>
+            </ul>
+            <p style="margin-top: 8px;">
+              I’m especially interested in roles where I can combine ML with
+              systems thinking: using embeddings and models, but also caring
+              deeply about observability, deployment, and the “boring” parts
+              that make tools reliable.
+            </p>
+          </div>
         </div>
-      </aside>
+      </section>
     </main>
 
     <footer>
-      <span>© <span id="year"></span> Thanvi Ravala</span>
-      <span>Built with GitHub Pages</span>
+      <span>© <span id="year"></span> Thanvi Ravala · Built for humans and debuggers</span>
+      <span>Live, inspectable portfolio – no black-box slides.</span>
     </footer>
   </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const chatInput = document.getElementById("chat-input");
+    const chatOutput = document.getElementById("chat-output");
+    const chatSend = document.getElementById("chat-send");
+
+    function respondToChat(query) {
+      const q = query.toLowerCase();
+      if (!q.trim()) {
+        return "ask me about semantic search, queues, dashboards, or what I’m studying at VT.";
+      }
+
+      if (q.includes("semantic") || q.includes("search") || q.includes("faiss")) {
+        return "My semantic search project uses a SentenceTransformers model with FAISS as the vector index. I treat the data like a small fleet of technical notes: clean embeddings, simple metadata, and a CLI so you can trace each query end-to-end.";
+      }
+
+      if (q.includes("queue") || q.includes("redis") || q.includes("worker")) {
+        return "I have a Node.js + Redis project where every retrieval request becomes a job in a queue. Workers pick them up, process them, and the React dashboard shows status, progress, and basic throughput metrics.";
+      }
+
+      if (q.includes("dashboard") || q.includes("viz") || q.includes("visualizer")) {
+        return "I like building minimal dashboards that expose the guts of a system: job counts, simple latency buckets, and success/error rates. The visual pieces on this site mimic that approach in a tiny, front-end-only way.";
+      }
+
+      if (q.includes("school") || q.includes("vt") || q.includes("virginia tech")) {
+        return "I’m studying Computer Science at Virginia Tech, focusing on AI and data-heavy systems. I enjoy projects where I can combine ML with backend engineering and DevOps ideas.";
+      }
+
+      if (q.includes("tech") || q.includes("stack") || q.includes("tools")) {
+        return "I work mostly with Python, Java, and JavaScript/TypeScript. For AI/data: Pandas, NumPy, SentenceTransformers. For backend: Node.js, Express, Redis, REST APIs. For infra: AWS, Git, GitHub.";
+      }
+
+      if (q.includes("intern") || q.includes("role") || q.includes("job")) {
+        return "I’m targeting AI engineering and systems-style internships for Summer 2026 – roles that sit between ML, infra, and data pipelines.";
+      }
+
+      return "I’m a VT CS student focused on AI + systems. Ask me about semantic search, distributed queues, dashboards, or my tech stack, and I’ll route you to the right project.";
+    }
+
+    chatSend.addEventListener("click", () => {
+      const query = chatInput.value;
+      const answer = respondToChat(query);
+      chatOutput.innerHTML = `<span>you:</span> ${query || "(no question)"}<br><span>bot:</span> ${answer}`;
+    });
+
+    chatInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        chatSend.click();
+      }
+    });
+
+    const docs = [
+      {
+        title: "Embeddings over CAD notes",
+        snippet:
+          "SentenceTransformers model + FAISS index to retrieve mechanical part notes with natural language queries.",
+        keywords: ["semantic", "faiss", "embeddings", "cad", "notes"],
+      },
+      {
+        title: "Redis-backed retrieval queue",
+        snippet:
+          "Node.js API where each retrieval request becomes a job in Redis; workers process jobs and push status updates.",
+        keywords: ["queue", "redis", "workers", "jobs", "api"],
+      },
+      {
+        title: "Status dashboard",
+        snippet:
+          "React front-end that surfaces job states, basic latency buckets, and failure rates for the queue system.",
+        keywords: ["dashboard", "status", "latency", "react"],
+      },
+      {
+        title: "CLI tracing tool",
+        snippet:
+          "Local CLI that lets you trace a query from input, to embedding, to top-k results in the semantic search engine.",
+        keywords: ["cli", "trace", "semantic", "debug"],
+      },
+    ];
+
+    const searchInput = document.getElementById("search-input");
+    const searchResults = document.getElementById("search-results");
+    const searchRun = document.getElementById("search-run");
+
+    function runSearch(query) {
+      const q = query.toLowerCase().split(/\s+/).filter(Boolean);
+      const scored = docs
+        .map((doc) => {
+          let score = 0;
+          q.forEach((word) => {
+            if (doc.keywords.some((k) => k.includes(word))) {
+              score += 2;
+            }
+            if (doc.snippet.toLowerCase().includes(word)) {
+              score += 1;
+            }
+          });
+          return { doc, score };
+        })
+        .filter((item) => item.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 3);
+
+      if (!q.length || scored.length === 0) {
+        searchResults.innerHTML =
+          '<div class="demo-doc"><strong>No strong matches yet.</strong><br><span>Try: “FAISS”, “job queue”, or “status dashboard”.</span></div>';
+        return;
+      }
+
+      searchResults.innerHTML = scored
+        .map(
+          (item) =>
+            `<div class="demo-doc"><strong>${item.doc.title}</strong><br><span>${item.doc.snippet}</span></div>`
+        )
+        .join("");
+    }
+
+    searchRun.addEventListener("click", () => {
+      runSearch(searchInput.value);
+    });
+
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        searchRun.click();
+      }
+    });
+
+    runSearch("faiss");
+
+    const depthSlider = document.getElementById("depth-slider");
+    const depthPill = document.getElementById("depth-pill");
+    const depthSummary = document.getElementById("depth-summary");
+
+    function updateDepth(depth) {
+      const d = parseInt(depth, 10);
+      const latency = 20 + d * 10 + (d > 6 ? (d - 6) * 4 : 0);
+      depthPill.textContent = `depth: ${d} · est. latency ~${latency}ms`;
+
+      if (d <= 3) {
+        depthSummary.textContent =
+          "Shallow model: low latency and easy to reason about, but limited capacity on complex distributions.";
+      } else if (d <= 7) {
+        depthSummary.textContent =
+          "Balanced profile: good capacity with comfortable latency and decent interpretability – great default for many systems.";
+      } else {
+        depthSummary.textContent =
+          "Deep stack: strong capacity, but you trade off latency and interpretability. Needs careful monitoring and good observability.";
+      }
+    }
+
+    depthSlider.addEventListener("input", (e) => {
+      updateDepth(e.target.value);
+    });
+
+    updateDepth(depthSlider.value);
+
+    const btnSemantic = document.getElementById("btn-semantic");
+    const btnQueues = document.getElementById("btn-queues");
+    const btnDashboard = document.getElementById("btn-dashboard");
+
+    btnSemantic.addEventListener("click", () => {
+      chatInput.value = "How did you build your semantic search project?";
+      chatSend.click();
+      searchInput.value = "FAISS embeddings";
+      searchRun.click();
+    });
+
+    btnQueues.addEventListener("click", () => {
+      chatInput.value = "Do you have experience with distributed queues and workers?";
+      chatSend.click();
+      searchInput.value = "job queue workers";
+      searchRun.click();
+    });
+
+    btnDashboard.addEventListener("click", () => {
+      searchInput.value = "status dashboard latency";
+      searchRun.click();
+    });
   </script>
 </body>
 </html>
+```
