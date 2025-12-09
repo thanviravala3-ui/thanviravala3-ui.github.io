@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,7 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   />
-  <title>Thanvi Ravala | AI Systems & Live Demos</title>
+  <title>Thanvi Ravala | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -21,10 +20,11 @@
       --fg-main: #e5e7eb;
       --fg-muted: #9ca3af;
       --fg-soft: #6b7280;
-      --accent: #d0102a; /* Tesla red inspired */
-      --accent-soft: rgba(208, 16, 42, 0.16);
-      --border-subtle: rgba(148, 163, 184, 0.25);
-      --radius-lg: 20px;
+      --accent: #22d3ee;
+      --accent-strong: #38bdf8;
+      --accent-pink: #f472b6;
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --radius-lg: 18px;
       --radius-pill: 999px;
       --shadow-soft: 0 22px 60px rgba(0, 0, 0, 0.7);
     }
@@ -38,30 +38,11 @@
     body {
       font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
         sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(148, 163, 253, 0.18), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.16), transparent 55%),
-        radial-gradient(circle at top right, rgba(248, 113, 113, 0.18), transparent 60%),
-        var(--bg);
+      background: radial-gradient(circle at top left, #020617 0, #000000 60%);
       color: var(--fg-main);
-      -webkit-font-smoothing: antialiased;
       min-height: 100vh;
-    }
-
-    body::before {
-      /* fake starfield */
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.4) 0, transparent 2px),
-        radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.35) 0, transparent 2px),
-        radial-gradient(circle at 30% 70%, rgba(248, 250, 252, 0.4) 0, transparent 2px),
-        radial-gradient(circle at 60% 50%, rgba(248, 250, 252, 0.35) 0, transparent 2px);
-      background-size: 420px 420px, 520px 520px, 480px 480px, 560px 560px;
-      opacity: 0.35;
-      z-index: -1;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
     }
 
     a {
@@ -69,57 +50,58 @@
       text-decoration: none;
     }
 
+    /* Layout shell */
+
     .page {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 20px 18px 60px;
+      padding: 18px 18px 60px;
     }
 
-    /* Top nav */
+    /* NAV */
 
-    .top-nav {
+    .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      padding: 10px 14px;
+      padding: 10px 16px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.92);
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7);
-      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
       position: sticky;
-      top: 12px;
+      top: 10px;
       z-index: 20;
       backdrop-filter: blur(18px);
     }
 
-    .brand {
+    .nav-left {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       font-size: 0.86rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
       color: var(--fg-muted);
     }
 
     .brand-badge {
-      width: 22px;
-      height: 22px;
-      border-radius: 8px;
-      background: radial-gradient(circle at 30% 0, #ffffff 0, #d0102a 55%);
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #ffffff 0, #22d3ee 50%, #0f172a 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #ffffff;
-      font-size: 0.65rem;
+      color: #020617;
+      font-size: 0.78rem;
       font-weight: 700;
-      box-shadow: 0 10px 24px rgba(208, 16, 42, 0.7);
+      box-shadow: 0 12px 26px rgba(34, 211, 238, 0.7);
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
+      gap: 20px;
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
@@ -128,7 +110,7 @@
 
     .nav-links a {
       position: relative;
-      padding-bottom: 3px;
+      padding-bottom: 2px;
     }
 
     .nav-links a::after {
@@ -138,7 +120,7 @@
       bottom: 0;
       width: 0;
       height: 1.5px;
-      background: var(--accent);
+      background: linear-gradient(90deg, var(--accent), var(--accent-pink));
       transition: width 0.18s ease;
     }
 
@@ -152,56 +134,57 @@
       gap: 8px;
     }
 
-    .chip {
+    .nav-pill {
       border-radius: var(--radius-pill);
       padding: 4px 10px;
-      background: #020617;
-      color: #e5e7eb;
-      font-size: 0.72rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.96);
+      font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--fg-muted);
     }
 
     .nav-btn {
       border-radius: var(--radius-pill);
-      padding: 6px 14px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.95);
-      font-size: 0.8rem;
+      padding: 6px 12px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: #020617;
+      font-size: 0.78rem;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       cursor: pointer;
-      transition:
-        box-shadow 0.13s ease,
-        transform 0.13s ease,
-        border 0.13s ease,
-        background 0.13s ease;
       color: var(--fg-main);
+      transition:
+        background 0.15s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
     }
 
     .nav-btn.primary {
-      background: linear-gradient(120deg, #000000, #111827);
-      color: #f9fafb;
+      background: linear-gradient(120deg, var(--accent), var(--accent-pink));
       border-color: transparent;
-      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.9);
+      color: #020617;
+      font-weight: 600;
     }
 
     .nav-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.9);
-      border-color: rgba(248, 250, 252, 0.9);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
       background: rgba(15, 23, 42, 1);
     }
 
     .nav-btn.primary:hover {
-      background: linear-gradient(120deg, #020617, #000000);
+      background: linear-gradient(120deg, var(--accent-strong), var(--accent-pink));
+      color: #020617;
     }
 
-    @media (max-width: 840px) {
-      .top-nav {
-        padding-inline: 14px;
+    @media (max-width: 860px) {
+      .nav {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
       }
 
       .nav-links {
@@ -209,71 +192,59 @@
       }
     }
 
-    @media (max-width: 560px) {
-      .top-nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .nav-actions {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-
-    /* Hero */
+    /* HERO like your screenshot */
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
-      gap: 32px;
-      margin-top: 32px;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 40px;
       align-items: center;
+      min-height: calc(100vh - 90px);
+      padding: 32px 8px 12px;
     }
 
     @media (max-width: 860px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
+        text-align: center;
       }
     }
 
     .hero-eyebrow {
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.28em;
+      font-size: 0.84rem;
       color: var(--fg-muted);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .hero-eyebrow span {
       color: var(--accent);
     }
 
-    .hero-title {
-      font-size: clamp(2.3rem, 4vw, 3rem);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
+    .hero-main-line {
+      font-size: 2.4rem;
+      margin-bottom: 4px;
+      font-weight: 700;
     }
 
-    .hero-subtitle {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--fg-muted);
-      margin-bottom: 16px;
+    .hero-name {
+      font-size: 2.6rem;
+      font-weight: 700;
+      background: linear-gradient(120deg, #e5e7eb, #a5b4fc, #38bdf8);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 4px;
+    }
+
+    .hero-sub-line {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: var(--fg-main);
     }
 
     .hero-tagline {
-      font-size: 1rem;
-      max-width: 34rem;
-      color: var(--fg-main);
-      margin-bottom: 10px;
-    }
-
-    .hero-meta {
       font-size: 0.9rem;
-      color: var(--fg-muted);
+      color: var(--fg-soft);
+      max-width: 420px;
       margin-bottom: 18px;
     }
 
@@ -281,95 +252,75 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .hero-pill {
       border-radius: var(--radius-pill);
-      padding: 5px 12px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.9);
-      font-size: 0.8rem;
-      backdrop-filter: blur(10px);
-      color: #e5e7eb;
+      padding: 6px 12px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.96);
+      font-size: 0.78rem;
+      color: var(--fg-muted);
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 16px;
+      align-items: center;
+      margin-bottom: 6px;
     }
 
-    .hero-secondary {
+    .hero-note {
       font-size: 0.8rem;
       color: var(--fg-muted);
+      max-width: 360px;
     }
 
-    .hero-secondary span {
-      color: var(--accent);
-    }
+    @media (max-width: 860px) {
+      .hero-badges,
+      .hero-actions {
+        justify-content: center;
+      }
 
-    .hero-right {
-      position: relative;
-    }
-
-    .hero-card {
-      border-radius: 28px;
-      background: radial-gradient(circle at top, #0f172a 0, #020617 50%, #000000 100%);
-      padding: 18px 18px 16px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      box-shadow: var(--shadow-soft);
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
-      gap: 16px;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 10% 0, rgba(248, 250, 252, 0.16), transparent 55%);
-      pointer-events: none;
-      opacity: 0.7;
-    }
-
-    @media (max-width: 620px) {
-      .hero-card {
-        grid-template-columns: minmax(0, 1fr);
+      .hero-tagline,
+      .hero-note {
+        margin-inline: auto;
       }
     }
 
-    .hero-photo-wrap {
+    .hero-right {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px;
-      position: relative;
-      z-index: 1;
     }
 
-    .hero-photo-inner {
-      width: 220px;
-      height: 220px;
-      border-radius: 999px;
+    .avatar-glow-wrap {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 0, #0ea5e9 0, #22d3ee 35%, #020617 100%);
+      box-shadow:
+        0 0 35px rgba(56, 189, 248, 0.9),
+        0 0 80px rgba(56, 189, 248, 0.7);
+      animation: glowPulse 4.5s ease-in-out infinite;
+    }
+
+    .avatar-ring {
+      width: 84%;
+      height: 84%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 0, #ffffff 0, #0f172a 60%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
-      position: relative;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
-      border: 4px solid #020617;
-      background: #000000;
-    }
-
-    .hero-photo-inner::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 20% 0, rgba(255, 255, 255, 0.24), transparent 45%);
-      mix-blend-mode: screen;
-      pointer-events: none;
+      border: 4px solid #0b1120;
     }
 
     .hero-photo {
@@ -379,270 +330,63 @@
       display: block;
     }
 
-    .hero-photo-tag {
+    .avatar-dot {
       position: absolute;
-      bottom: 14px;
-      left: 16px;
-      border-radius: var(--radius-pill);
-      padding: 5px 10px;
-      background: rgba(15, 23, 42, 0.96);
-      color: #f9fafb;
-      font-size: 0.74rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-    }
-
-    .hero-photo-tag-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
+      bottom: 20px;
+      right: 24px;
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
       background: #22c55e;
-      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.35);
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.3);
     }
 
-    .hero-specs {
-      display: grid;
-      gap: 10px;
-      position: relative;
-      z-index: 1;
+    @keyframes glowPulse {
+      0% {
+        transform: scale(1);
+        box-shadow:
+          0 0 35px rgba(56, 189, 248, 0.9),
+          0 0 80px rgba(56, 189, 248, 0.7);
+      }
+      50% {
+        transform: scale(1.03);
+        box-shadow:
+          0 0 50px rgba(56, 189, 248, 1),
+          0 0 110px rgba(244, 114, 182, 0.9);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow:
+          0 0 35px rgba(56, 189, 248, 0.9),
+          0 0 80px rgba(56, 189, 248, 0.7);
+      }
     }
 
-    .hero-spec-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--fg-muted);
-    }
-
-    .hero-spec-main {
-      font-size: 0.96rem;
-      margin-bottom: 2px;
-    }
-
-    .hero-spec-sub {
-      font-size: 0.86rem;
-      color: var(--fg-muted);
-    }
-
-    .spec-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .spec-pill {
-      border-radius: 16px;
-      padding: 6px 10px;
-      background: rgba(15, 23, 42, 0.9);
-      color: #f9fafb;
-      font-size: 0.78rem;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-    }
-
-    .spec-pill span {
-      color: #9ca3af;
-    }
-
-    /* Sections */
+    /* GENERIC SECTION STYLES */
 
     .section {
-      margin-top: 46px;
+      padding: 56px 4px 6px;
     }
 
     .section-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      align-items: flex-end;
       margin-bottom: 18px;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
-      padding-bottom: 8px;
     }
 
     .section-title {
-      font-size: 0.92rem;
+      font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.22em;
       color: var(--fg-muted);
+      margin-bottom: 6px;
     }
 
     .section-sub {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--fg-soft);
-      max-width: 32rem;
+      max-width: 480px;
     }
 
-    @media (max-width: 640px) {
-      .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    /* Demos grid (2 demos only) */
-
-    .demos-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
-      gap: 18px;
-    }
-
-    @media (max-width: 960px) {
-      .demos-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .panel {
-      border-radius: var(--radius-lg);
-      background: var(--panel);
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.7);
-      padding: 16px 16px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 8px;
-    }
-
-    .panel-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .panel-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--fg-muted);
-    }
-
-    .panel-desc {
-      font-size: 0.86rem;
-      color: var(--fg-muted);
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 2px;
-    }
-
-    .tiny-pill {
-      border-radius: 999px;
-      padding: 2px 8px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.72rem;
-      color: var(--fg-muted);
-      background: rgba(15, 23, 42, 0.8);
-    }
-
-    .demo-body {
-      border-radius: 14px;
-      border: 1px dashed rgba(148, 163, 184, 0.7);
-      padding: 10px;
-      font-size: 0.84rem;
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    .demo-body-inner {
-      background: #020617;
-      color: #e5e7eb;
-      border-radius: 12px;
-      padding: 10px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-        "Liberation Mono", "Courier New", monospace;
-      font-size: 0.78rem;
-      display: grid;
-      gap: 8px;
-    }
-
-    .demo-label {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.7rem;
-      color: #9ca3af;
-    }
-
-    .demo-input-row {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .demo-input-row input {
-      flex: 1;
-      padding: 6px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.95);
-      color: #f9fafb;
-      font-family: inherit;
-      font-size: 0.78rem;
-      outline: none;
-    }
-
-    .demo-input-row button {
-      border-radius: 999px;
-      padding: 6px 10px;
-      border: 1px solid rgba(248, 250, 252, 0.8);
-      background: linear-gradient(120deg, #d0102a, #b91c1c);
-      color: #f9fafb;
-      font-size: 0.76rem;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .demo-output {
-      min-height: 46px;
-      border-radius: 10px;
-      border: 1px dashed rgba(148, 163, 184, 0.9);
-      padding: 6px 8px;
-      background: rgba(15, 23, 42, 0.9);
-      color: #e5e7eb;
-    }
-
-    .demo-output span {
-      color: #a5b4fc;
-    }
-
-    .demo-hint {
-      font-size: 0.7rem;
-      color: #9ca3af;
-    }
-
-    .demo-docs {
-      display: grid;
-      gap: 4px;
-    }
-
-    .demo-doc {
-      font-size: 0.78rem;
-      padding: 4px 6px;
-      border-radius: 8px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-    }
-
-    .demo-doc strong {
-      color: #e5e7eb;
-    }
-
-    .demo-doc span {
-      color: #9ca3af;
-    }
-
-    /* Projects */
+    /* PROJECTS */
 
     .projects-grid {
       display: grid;
@@ -678,7 +422,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.14), transparent 60%);
+      background: radial-gradient(circle at 0 0, rgba(59, 130, 246, 0.22), transparent 60%);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.16s ease;
@@ -731,12 +475,12 @@
     }
 
     .project-pill {
-      border-radius: 999px;
+      border-radius: var(--radius-pill);
       padding: 2px 8px;
       border: 1px solid rgba(148, 163, 184, 0.8);
       font-size: 0.74rem;
       color: var(--fg-muted);
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.96);
     }
 
     .project-cta {
@@ -747,16 +491,177 @@
       letter-spacing: 0.16em;
     }
 
-    /* About */
+    /* DEMOS */
 
-    .about-layout {
+    .demos-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 960px) {
+      .demos-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .panel {
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.7);
+      padding: 16px 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .panel-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .panel-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--fg-muted);
+    }
+
+    .panel-desc {
+      font-size: 0.86rem;
+      color: var(--fg-muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .tiny-pill {
+      border-radius: 999px;
+      padding: 2px 8px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.72rem;
+      color: var(--fg-muted);
+      background: rgba(15, 23, 42, 0.92);
+    }
+
+    .demo-body {
+      border-radius: 14px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      padding: 10px;
+      font-size: 0.84rem;
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    .demo-body-inner {
+      background: #020617;
+      color: #e5e7eb;
+      border-radius: 12px;
+      padding: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 0.78rem;
+      display: grid;
+      gap: 8px;
+    }
+
+    .demo-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+      color: #9ca3af;
+    }
+
+    .demo-input-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .demo-input-row input {
+      flex: 1;
+      padding: 6px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.95);
+      color: #f9fafb;
+      font-family: inherit;
+      font-size: 0.78rem;
+      outline: none;
+    }
+
+    .demo-input-row button {
+      border-radius: 999px;
+      padding: 6px 10px;
+      border: 1px solid rgba(248, 250, 252, 0.9);
+      background: linear-gradient(120deg, var(--accent), var(--accent-pink));
+      color: #020617;
+      font-size: 0.76rem;
+      cursor: pointer;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    .demo-output {
+      min-height: 46px;
+      border-radius: 10px;
+      border: 1px dashed rgba(148, 163, 184, 0.9);
+      padding: 6px 8px;
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+    }
+
+    .demo-output span {
+      color: #a5b4fc;
+    }
+
+    .demo-hint {
+      font-size: 0.7rem;
+      color: #9ca3af;
+    }
+
+    .demo-docs {
+      display: grid;
+      gap: 4px;
+    }
+
+    .demo-doc {
+      font-size: 0.78rem;
+      padding: 4px 6px;
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    .demo-doc strong {
+      color: #e5e7eb;
+    }
+
+    .demo-doc span {
+      color: #9ca3af;
+    }
+
+    /* ABOUT + CONTACT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
       gap: 18px;
     }
 
     @media (max-width: 900px) {
-      .about-layout {
+      .about-grid {
         grid-template-columns: minmax(0, 1fr);
       }
     }
@@ -772,9 +677,9 @@
     }
 
     .about-card h3 {
-      font-size: 0.94rem;
+      font-size: 0.92rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       margin-bottom: 10px;
       color: var(--fg-main);
     }
@@ -799,6 +704,22 @@
       font-weight: 500;
     }
 
+    .contact-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .contact-chip {
+      border-radius: var(--radius-pill);
+      padding: 6px 10px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.96);
+      font-size: 0.8rem;
+      color: var(--fg-main);
+    }
+
     footer {
       margin-top: 40px;
       padding-top: 14px;
@@ -810,23 +731,31 @@
       font-size: 0.78rem;
       color: var(--fg-soft);
     }
+
+    @media (max-width: 640px) {
+      footer {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="page">
-    <header class="top-nav">
-      <div class="brand">
+    <!-- NAV -->
+    <header class="nav">
+      <div class="nav-left">
         <div class="brand-badge">TR</div>
-        <span>AI systems · portfolio</span>
+        <span>Portfolio</span>
       </div>
       <nav class="nav-links">
-        <a href="#overview">Overview</a>
+        <a href="#home">Home</a>
         <a href="#projects">Projects</a>
         <a href="#demos">Demos</a>
         <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </nav>
       <div class="nav-actions">
-        <div class="chip">Summer 2026 · intern</div>
+        <div class="nav-pill">Summer 2026 · Intern</div>
         <a
           class="nav-btn primary"
           href="https://www.linkedin.com/in/thanviravala"
@@ -846,331 +775,332 @@
       </div>
     </header>
 
-    <main>
-      <!-- HERO -->
-      <section id="overview" class="hero">
-        <div>
-          <div class="hero-eyebrow">
-            <span>AI + data</span> · VT CS kid who genuinely loves making cool stuff!
-          </div>
-          <h1 class="hero-title">Thanvi Ravala</h1>
-          <div class="hero-subtitle">
-            Computer Science · Virginia Tech · AI & Systems
-          </div>
-          <p class="hero-tagline">
-           I build AI systems that don’t freak out when real data rolls in: semantic search, 
-            retrieval tools, and dashboards that make sure everything behaves!
-          </p>
-          <p class="hero-meta">
-           I’m all about making things run smoothly and actually understanding what’s happening 
-            under the hood. This site is a small space where you can click around and try the 
-            projects yourself.
-          </p>
+    <!-- HERO -->
+    <main id="home" class="hero">
+      <div>
+        <p class="hero-eyebrow">
+          Hello, it is me <span>Thanvi</span>
+        </p>
+        <p class="hero-main-line">And I work in AI + systems.</p>
+        <h1 class="hero-name">Computer Science · Virginia Tech</h1>
+        <p class="hero-sub-line">
+          I like building things that sit between machine learning and the real world.
+        </p>
+        <p class="hero-tagline">
+          I focus on semantic search, small retrieval tools, and dashboards that
+          make systems feel less mysterious. I want everything to be traceable,
+          from a user question to the database call that answered it.
+        </p>
 
-          <div class="hero-badges">
-            <div class="hero-pill">Semantic search & retrieval</div>
-            <div class="hero-pill">Python · Node.js · Java</div>
-            <div class="hero-pill">AWS · GitHub · CLI workflows</div>
-          </div>
-
-          <div class="hero-actions">
-            <a
-              class="nav-btn primary"
-              href="#projects"
-            >
-              Jump to projects
-            </a>
-            <a
-              class="nav-btn"
-              href="#demos"
-            >
-              Play with the demos
-            </a>
-          </div>
-        
+        <div class="hero-badges">
+          <div class="hero-pill">Semantic search and retrieval</div>
+          <div class="hero-pill">Python · Node.js · Java</div>
+          <div class="hero-pill">AWS · Redis · simple dashboards</div>
         </div>
 
-        <div class="hero-right">
-          <div class="hero-card">
-            <div class="hero-photo-wrap">
-              <div class="hero-photo-inner">
-                <!-- Make sure thanvi.jpg is in the same folder as this HTML file -->
-                <img
-                  src="thanvi.jpg"
-                  alt="Photo of Thanvi Ravala"
-                  class="hero-photo"
-                />
-                <div class="hero-photo-tag">
-                  <span class="hero-photo-tag-dot"></span>
-                  <span>Online · probably coding or trip-planning</span>
-                </div>
-              </div>
-            </div>
+        <div class="hero-actions">
+          <a href="#projects" class="nav-btn primary">See my projects</a>
+          <a href="#demos" class="nav-btn">Try the demos</a>
+        </div>
+        <p class="hero-note">
+          Scroll down for a few focused repos, a playful chatbot that explains my work,
+          and a tiny semantic search sandbox.
+        </p>
+      </div>
 
-            <div class="hero-specs">
-              <div>
-                <div class="hero-spec-label">What I like building</div>
-                <div class="hero-spec-main">
-                  Tools between ML models and the real world.
-                </div>
-                <div class="hero-spec-sub">
-                  Things like embeddings + FAISS, Redis queues, and simple
-                  dashboards so you can see what the system is doing instead of
-                  just trusting it.
-                </div>
-              </div>
-              <div>
-                <div class="hero-spec-label">Current “range”</div>
-                <div class="spec-row">
-                  <div class="spec-pill">
-                    Graduating May 2027
-                    <span> · VT CS </span>
-                  </div>
-                  <div class="spec-pill">
-                    Live demos
-                    <span> · chatbot + search</span>
-                  </div>
-                </div>
-              </div>
-              <div>
-                
-              </div>
-            </div>
+      <div class="hero-right">
+        <div class="avatar-glow-wrap">
+          <div class="avatar-ring">
+            <!-- put thanvi.jpg in the same folder as this file -->
+            <img
+              src="thanvi.jpg"
+              alt="Photo of Thanvi Ravala"
+              class="hero-photo"
+            />
           </div>
+          <div class="avatar-dot"></div>
         </div>
-      </section>
-
-      <!-- PROJECTS -->
-      <section id="projects" class="section">
-        <div class="section-header">
-          <h2 class="section-title">Projects</h2>
-          <p class="section-sub">
-            A few of the repos i've built so far with more on the way as I
-            keep leveling up my AI + backend!
-          </p>
-        </div>
-
-        <div class="projects-grid">
-          <a
-            class="project-card"
-            href="https://github.com/thanviravala3-ui/semantic-search-technical-notes"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div class="project-top-row">
-              <div>
-                <div class="project-name">
-                  Semantic Search for Technical Notes
-                </div>
-                <div class="project-desc">
-                  A compact semantic search engine over CAD part descriptions and
-                  engineering notes. I use a pre-trained SentenceTransformers model
-                  with a FAISS index so you can ask normal questions and still land
-                  on the right snippets.
-                </div>
-              </div>
-              <div class="project-label">Retrieval · Python</div>
-            </div>
-            <div class="project-meta">
-              The repo stays intentionally clean: data folder, embeddings, index,
-              and a simple CLI that lets you trace a query from text → vector →
-              top-k results without getting lost.
-            </div>
-            <div class="project-tags">
-              <span class="project-pill">Python · SentenceTransformers</span>
-              <span class="project-pill">FAISS</span>
-              <span class="project-pill">CLI debug flow</span>
-            </div>
-            <div class="project-cta">Open on GitHub →</div>
-          </a>
-
-          <a
-            class="project-card"
-            href="https://github.com/thanviravala3-ui/fleet-semantic-platform"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div class="project-top-row">
-              <div>
-                <div class="project-name">Fleet-style Semantic Platform</div>
-                <div class="project-desc">
-                  Node.js backend with a Redis job queue and a React dashboard for
-                  tracking retrieval jobs. Every request becomes a visible job
-                  instead of disappearing into the abyss.
-                </div>
-              </div>
-              <div class="project-label">Queues · Full stack</div>
-            </div>
-            <div class="project-meta">
-              JWT-authenticated API, background workers, and a tiny status panel
-              for job counts and rough latency. It’s my starter version of a fleet
-              telemetry view – opinionated, but easy to extend.
-            </div>
-            <div class="project-tags">
-              <span class="project-pill">Node.js · Express</span>
-              <span class="project-pill">Redis · queues</span>
-              <span class="project-pill">React dashboard</span>
-            </div>
-            <div class="project-cta">Open on GitHub →</div>
-          </a>
-        </div>
-      </section>
-
-      <!-- LIVE DEMOS (2 demos) -->
-      <section id="demos" class="section">
-        <div class="section-header">
-          <h2 class="section-title">Live demos</h2>
-         
-        </div>
-
-        <div class="demos-grid">
-          <!-- Demo 1: chatbot -->
-          <div class="panel">
-            <div class="panel-header">
-              <div>
-                <div class="panel-title">Project explainer chatbot</div>
-                <div class="panel-desc">
-                  Ask about my work, my stack, or what I’m learning. This little bot
-                  isn’t “fancy AI,” it’s just a smart router that gives you straight
-                  answers in my voice.
-                </div>
-              </div>
-              <div class="panel-label">Demo · Chat</div>
-            </div>
-            <div class="pill-row">
-              <div class="tiny-pill">Rule-based (on purpose)</div>
-              <div class="tiny-pill">Projects Q&A</div>
-              <div class="tiny-pill">Front-end only</div>
-            </div>
-
-            <div class="demo-body">
-              <div class="demo-body-inner">
-                <div class="demo-label">Chat with my portfolio</div>
-                <div class="demo-input-row">
-                  <input
-                    type="text"
-                    id="chat-input"
-                    placeholder='Try: "How did you build semantic search?"'
-                  />
-                  <button id="chat-send">Send</button>
-                </div>
-                <div id="chat-output" class="demo-output">
-                  <span>bot:</span> ask me about semantic search, queues, VT, or
-                  what I’m aiming for next.
-                </div>
-                <div class="demo-hint">
-                  Ideas: “What’s your stack?”, “Do you use Redis?”, “What kind of
-                  internships are you hunting for?”
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Demo 2: semantic search sandbox -->
-          <div class="panel">
-            <div class="panel-header">
-              <div>
-                <div class="panel-title">Semantic search sandbox</div>
-                <div class="panel-desc">
-                 It pretends to be a little semantic search tool and gives you the best 
-                  matches using a simple scoring trick.
-                </div>
-              </div>
-              <div class="panel-label">Demo · Search</div>
-            </div>
-            <div class="pill-row">
-              <div class="tiny-pill">Toy relevance scoring</div>
-              <div class="tiny-pill">Top-k project notes</div>
-            </div>
-
-            <div class="demo-body">
-              <div class="demo-body-inner">
-                <div class="demo-label">Search my fake notes</div>
-                <div class="demo-input-row">
-                  <input
-                    type="text"
-                    id="search-input"
-                    placeholder='Try: "FAISS embeddings" or "job queue"'
-                  />
-                  <button id="search-run">Search</button>
-                </div>
-                <div id="search-results" class="demo-docs">
-                  <!-- Populated by JS -->
-                </div>
-                <div class="demo-hint">
-                  The real project uses SentenceTransformers + FAISS in Python –
-                  this is the cute front-end cousin that mimics the ranking part.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section id="about" class="section">
-        <div class="section-header">
-          <h2 class="section-title">About & stack</h2>
-          
-        </div>
-
-        <div class="about-layout">
-          <div class="about-card">
-            <h3>Who I am</h3>
-            <p>
-              I’m a Computer Science student at Virginia Tech who genuinely likes
-              the mix of AI, data, and backend engineering. I love building things
-              that feel approachable on the surface but are very serious about
-              structure and reliability underneath.
-            </p>
-            <p>
-              My projects follow a simple rule: if someone new joins the team,
-              they should be able to open the repo, run a command or two, and
-              actually understand what’s going on without a 40-minute speech.
-            </p>
-            <ul class="about-list">
-              <li><span>Location:</span> Virginia, USA (always planning the next trip)</li>
-              <li><span>School:</span> Virginia Tech · B.S. in Computer Science</li>
-              <li><span>Focus:</span> AI engineering, data workflows, platform tools</li>
-              <li><span>Currently:</span> building more AI + systems projects and applying for Summer 2026 roles</li>
-            </ul>
-          </div>
-          <div class="about-card">
-            <h3>Tech I reach for</h3>
-            <ul class="about-list">
-              <li>
-                <span>Languages:</span> Python, Java, JavaScript/TypeScript, basic SQL
-              </li>
-              <li>
-                <span>AI / data:</span> Pandas, NumPy, SentenceTransformers,
-                basic ML workflows
-              </li>
-              <li>
-                <span>Backend:</span> Node.js, Express, REST APIs, Redis queues,
-                background workers
-              </li>
-              <li>
-                <span>Frontend:</span> React basics, HTML/CSS, simple dashboards
-              </li>
-              <li>
-                <span>Cloud & tooling:</span> AWS, Git, GitHub, CLI-first flows,
-                GitHub Pages
-              </li>
-            </ul>
-            <p style="margin-top: 8px;">
-              I’m especially happy in roles where I can mix “fun ML things” with
-              “boring but crucial infra things” – using embeddings and models, but
-              also caring about logs, latency, and making sure everything survives
-              real users.
-            </p>
-          </div>
-        </div>
-      </section>
+      </div>
     </main>
 
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-sub">
+          A few small but opinionated repos that show how I think about AI,
+          data, and control surfaces.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <a
+          class="project-card"
+          href="https://github.com/thanviravala3-ui/semantic-search-technical-notes"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div class="project-top-row">
+            <div>
+              <div class="project-name">
+                Semantic Search for Technical Notes
+              </div>
+              <div class="project-desc">
+                A compact semantic search engine over CAD part descriptions and
+                engineering notes that lets you type normal questions and still
+                land on the right snippets.
+              </div>
+            </div>
+            <div class="project-label">Retrieval · Python</div>
+          </div>
+          <div class="project-meta">
+            Everything is intentionally simple: data folder, embeddings, FAISS index,
+            and a CLI path where you can trace a query from text to top k results.
+          </div>
+          <div class="project-tags">
+            <span class="project-pill">Python · SentenceTransformers</span>
+            <span class="project-pill">FAISS</span>
+            <span class="project-pill">CLI debug flow</span>
+          </div>
+          <div class="project-cta">Open on GitHub →</div>
+        </a>
+
+        <!-- Project 2 -->
+        <a
+          class="project-card"
+          href="https://github.com/thanviravala3-ui/fleet-semantic-platform"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div class="project-top-row">
+            <div>
+              <div class="project-name">Fleet style Semantic Platform</div>
+              <div class="project-desc">
+                Node.js backend with a Redis job queue and a small React dashboard
+                for tracking retrieval jobs, so nothing disappears into the void.
+              </div>
+            </div>
+            <div class="project-label">Queues · Full stack</div>
+          </div>
+          <div class="project-meta">
+            JWT secured routes, background workers, and a tiny status panel
+            for job counts and rough latency. It is my starter version of a
+            fleet telemetry view that is easy to extend.
+          </div>
+          <div class="project-tags">
+            <span class="project-pill">Node.js · Express</span>
+            <span class="project-pill">Redis · queues</span>
+            <span class="project-pill">React dashboard</span>
+          </div>
+          <div class="project-cta">Open on GitHub →</div>
+        </a>
+
+        <!-- Project 3 -->
+        <a
+          class="project-card"
+          href="https://github.com/thanviravala3-ui/iot-control-cloud"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div class="project-top-row">
+            <div>
+              <div class="project-name">IoT Control Cloud</div>
+              <div class="project-desc">
+                A small control panel for IoT style devices from the browser.
+                Flip states, push simple config updates, and see status in one view.
+              </div>
+            </div>
+            <div class="project-label">IoT · Control</div>
+          </div>
+          <div class="project-meta">
+            Built like a starter control plane: clear separation between device
+            state and UI, clean routes, and a layout that could move from fake
+            devices to real hardware later.
+          </div>
+          <div class="project-tags">
+            <span class="project-pill">IoT</span>
+            <span class="project-pill">Control panel</span>
+            <span class="project-pill">Web dashboard</span>
+          </div>
+          <div class="project-cta">Open on GitHub →</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- DEMOS -->
+    <section id="demos" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Live demos</h2>
+        <p class="section-sub">
+          Two tiny sandboxes: one chatbot that explains my work and one toy
+          semantic search interface that mimics how I think about relevance.
+        </p>
+      </div>
+
+      <div class="demos-grid">
+        <!-- Demo 1: chatbot -->
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">Project explainer chatbot</div>
+              <div class="panel-desc">
+                Ask about my projects, stack, or internship goals. It is a small
+                rule based bot that routes you to the right parts of this page.
+              </div>
+            </div>
+            <div class="panel-label">Demo · Chat</div>
+          </div>
+          <div class="pill-row">
+            <div class="tiny-pill">Rule based (on purpose)</div>
+            <div class="tiny-pill">Projects Q and A</div>
+            <div class="tiny-pill">Front end only</div>
+          </div>
+
+          <div class="demo-body">
+            <div class="demo-body-inner">
+              <div class="demo-label">Chat with my portfolio</div>
+              <div class="demo-input-row">
+                <input
+                  type="text"
+                  id="chat-input"
+                  placeholder='Try: "How did you build semantic search?"'
+                />
+                <button id="chat-send">Send</button>
+              </div>
+              <div id="chat-output" class="demo-output">
+                <span>bot:</span> ask me about semantic search, queues, IoT,
+                Virginia Tech, or what I am aiming for next.
+              </div>
+              <div class="demo-hint">
+                Ideas: “What is your stack?”, “Do you use Redis?”, “What kind of
+                internships are you hunting for?”
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 2: semantic search sandbox -->
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">Semantic search sandbox</div>
+              <div class="panel-desc">
+                A tiny front end that pretends to be a semantic search tool and
+                ranks fake notes using a simple scoring trick.
+              </div>
+            </div>
+            <div class="panel-label">Demo · Search</div>
+          </div>
+          <div class="pill-row">
+            <div class="tiny-pill">Toy relevance scoring</div>
+            <div class="tiny-pill">Top k project notes</div>
+          </div>
+
+          <div class="demo-body">
+            <div class="demo-body-inner">
+              <div class="demo-label">Search my fake notes</div>
+              <div class="demo-input-row">
+                <input
+                  type="text"
+                  id="search-input"
+                  placeholder='Try: "FAISS embeddings" or "job queue"'
+                />
+                <button id="search-run">Search</button>
+              </div>
+              <div id="search-results" class="demo-docs">
+                <!-- populated by JS -->
+              </div>
+              <div class="demo-hint">
+                The real project uses SentenceTransformers plus FAISS in Python.
+                This is a small cousin that just plays with the ranking idea.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT + CONTACT -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <h2 class="section-title">About</h2>
+        <p class="section-sub">
+          A quick look at who I am, what I like building, and the tools I reach for first.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Who I am</h3>
+          <p>
+            I am a Computer Science student at Virginia Tech who really enjoys
+            the mix of AI, data, and backend work. I like building things that
+            feel friendly to use but serious about structure behind the scenes.
+          </p>
+          <p>
+            My favorite projects make it easy for someone new to open the repo,
+            run a command or two, and understand what is happening without a
+            long speech.
+          </p>
+          <ul class="about-list">
+            <li><span>Location:</span> Virginia, USA (always planning the next trip)</li>
+            <li><span>School:</span> Virginia Tech · B.S. in Computer Science</li>
+            <li><span>Focus:</span> AI engineering, data workflows, platform style tools</li>
+            <li><span>Currently:</span> building more AI and systems projects and applying for Summer 2026 roles</li>
+          </ul>
+        </div>
+
+        <div class="about-card">
+          <h3>Stack and contact</h3>
+          <ul class="about-list">
+            <li>
+              <span>Languages:</span> Python, Java, JavaScript and TypeScript, basic SQL
+            </li>
+            <li>
+              <span>AI and data:</span> Pandas, NumPy, SentenceTransformers
+            </li>
+            <li>
+              <span>Backend:</span> Node.js, Express, REST APIs, Redis queues
+            </li>
+            <li>
+              <span>Frontend:</span> React basics, HTML, CSS, simple dashboards
+            </li>
+            <li>
+              <span>Cloud and tooling:</span> AWS, Git, GitHub, CLI flows, GitHub Pages
+            </li>
+          </ul>
+          <div id="contact" class="contact-chip-row">
+            <a
+              class="contact-chip"
+              href="mailto:thanviravala3@gmail.com"
+            >
+              Email: thanviravala3@gmail.com
+            </a>
+            <a
+              class="contact-chip"
+              href="https://www.linkedin.com/in/thanviravala"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Connect on LinkedIn
+            </a>
+            <a
+              class="contact-chip"
+              href="https://github.com/thanviravala3-ui"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View GitHub profile
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer>
-      <span>© <span id="year"></span> Thanvi Ravala · VT CS</span>
-      <span>Built as a tiny mission control for my projects.</span>
+      <span>© <span id="year"></span> Thanvi Ravala · Virginia Tech CS</span>
+      <span>Built as a small glowing control center for my projects.</span>
     </footer>
   </div>
 
@@ -1184,34 +1114,38 @@
     function respondToChat(query) {
       const q = (query || "").toLowerCase();
       if (!q.trim()) {
-        return "Ask me about semantic search, queues, dashboards, Virginia Tech, or what kind of roles I’m going after.";
+        return "Ask me about semantic search, queues, IoT control, Virginia Tech, or the kind of roles I am exploring.";
       }
 
       if (q.includes("semantic") || q.includes("search") || q.includes("faiss")) {
-        return "I built a semantic search project in Python using a SentenceTransformers model for embeddings and FAISS as the vector index. Everything is kept small and traceable so you can follow a query from text all the way to the top-k results without needing a PhD.";
+        return "I built a semantic search project in Python using a SentenceTransformers model for embeddings and FAISS as the vector index. The design is small and traceable so you can follow a query from text to top k results.";
       }
 
       if (q.includes("queue") || q.includes("redis") || q.includes("worker")) {
-        return "Yes, I have a Node.js + Redis project where each retrieval request becomes a job in a queue. Workers pick up jobs in the background, and a React dashboard shows status and basic throughput so nothing silently gets stuck.";
+        return "I have a Node.js and Redis project where each retrieval request becomes a job in a queue. Background workers pick up jobs, and a small React dashboard shows status and rough throughput.";
+      }
+
+      if (q.includes("iot") || q.includes("device") || q.includes("control")) {
+        return "The IoT Control Cloud project acts like a starter control plane for devices. It separates device state from UI, and the layout could move from test devices to real hardware later.";
       }
 
       if (q.includes("dashboard") || q.includes("viz") || q.includes("visualizer")) {
-        return "I like dashboards that are simple but honest: job counts, rough latency, success vs. error. The goal is to make debugging feel like reading a story, not doing detective work at 3 a.m.";
+        return "I like dashboards that are simple but honest. Job counts, rough latency, success versus error. The goal is to make debugging feel like reading a story, not detective work.";
       }
 
       if (q.includes("school") || q.includes("vt") || q.includes("virginia tech")) {
-        return "I’m a CS student at Virginia Tech, leaning into AI, data-heavy systems, and backend work. Outside of code, I love traveling, running, and finding good food wherever I end up.";
+        return "I am a CS student at Virginia Tech, leaning into AI, data heavy systems, and backend work. Outside of code, I love traveling, running, and finding good food wherever I end up.";
       }
 
       if (q.includes("tech") || q.includes("stack") || q.includes("tools")) {
-        return "My go-to stack: Python, Java, and JavaScript/TypeScript. For AI/data I use Pandas, NumPy, and SentenceTransformers. For backend: Node.js, Express, Redis, REST APIs. For infra: AWS, Git, GitHub, and a lot of CLI.";
+        return "My main stack: Python, Java, and JavaScript or TypeScript. For AI and data I use Pandas, NumPy, and SentenceTransformers. For backend: Node.js, Express, Redis, REST APIs. For infra: AWS, Git, and a lot of CLI.";
       }
 
       if (q.includes("intern") || q.includes("role") || q.includes("job")) {
-        return "I’m targeting AI engineering and systems-style internships for Summer 2026 – roles that sit between ML, data pipelines, and platform engineering so I can use both my AI brain and my reliability brain.";
+        return "I am targeting AI engineering and systems style internships for Summer 2026. I like roles that blend models, data pipelines, and platform style reliability work.";
       }
 
-      return "Short version: I’m a VT CS student who likes AI + systems and cares a lot about reliability. Ask about semantic search, queues, dashboards, or my stack, and I’ll point you to the right part of this site.";
+      return "Short version: I am a VT CS student who likes AI and systems and cares a lot about reliability. Ask about semantic search, queues, IoT control, dashboards, or my stack, and I will point you to the right part of this page.";
     }
 
     chatSend.addEventListener("click", () => {
@@ -1226,32 +1160,38 @@
       }
     });
 
-   const docs = [
-  {
-    title: "Semantic search notes",
-    snippet:
-      "A tiny search tool that finds the most relevant notes using simple embeddings.",
-    keywords: ["search", "semantic", "embeddings", "notes"],
-  },
-  {
-    title: "Job queue demo",
-    snippet:
-      "Each request goes into a small queue, and workers pick them up and process them.",
-    keywords: ["queue", "jobs", "workers"],
-  },
-  {
-    title: "Status dashboard",
-    snippet:
-      "A clean little dashboard that shows what’s running and how fast things are moving.",
-    keywords: ["dashboard", "status", "latency"],
-  },
-  {
-    title: "CLI tracing tool",
-    snippet:
-      "A command-line tool that shows how a search goes from text to results.",
-    keywords: ["cli", "trace", "search"],
-  },
-];
+    const docs = [
+      {
+        title: "Semantic search notes",
+        snippet:
+          "A small search tool that finds the most relevant notes using embeddings and a vector index.",
+        keywords: ["search", "semantic", "embeddings", "notes", "faiss"],
+      },
+      {
+        title: "Job queue demo",
+        snippet:
+          "Each request turns into a job in a queue, and workers process them in the background.",
+        keywords: ["queue", "jobs", "workers", "redis"],
+      },
+      {
+        title: "Status dashboard",
+        snippet:
+          "A clean dashboard that shows what is running and how fast things are moving.",
+        keywords: ["dashboard", "status", "latency"],
+      },
+      {
+        title: "IoT control surface",
+        snippet:
+          "A browser panel for toggling device states and pushing basic config changes.",
+        keywords: ["iot", "device", "control"],
+      },
+      {
+        title: "CLI tracing tool",
+        snippet:
+          "A command line helper that traces how a search goes from text to results.",
+        keywords: ["cli", "trace", "search"],
+      },
+    ];
 
     const searchInput = document.getElementById("search-input");
     const searchResults = document.getElementById("search-results");
@@ -1282,7 +1222,7 @@
 
       if (!qWords.length || scored.length === 0) {
         searchResults.innerHTML =
-          '<div class="demo-doc"><strong>No strong matches yet.</strong><br><span>Try something like “FAISS”, “job queue”, or “status dashboard”.</span></div>';
+          '<div class="demo-doc"><strong>No strong matches yet.</strong><br><span>Try something like “FAISS”, “job queue”, or “IoT control”.</span></div>';
         return;
       }
 
@@ -1304,9 +1244,8 @@
       }
     });
 
-    // show something by default
+    // initial example
     runSearch("faiss");
   </script>
 </body>
 </html>
-```
