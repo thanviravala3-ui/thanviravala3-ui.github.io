@@ -851,22 +851,20 @@
       <section id="overview" class="hero">
         <div>
           <div class="hero-eyebrow">
-            <span>AI + data</span> · vt cs kid who actually likes backend things
+            <span>AI + data</span> · VT CS kid who genuinely loves making cool stuff!
           </div>
           <h1 class="hero-title">Thanvi Ravala</h1>
           <div class="hero-subtitle">
             Computer Science · Virginia Tech · AI & Systems
           </div>
           <p class="hero-tagline">
-            I build AI-flavored systems that don’t fall apart the second real data hits them:
-            semantic search engines, retrieval services, and little dashboards that keep
-            everything honest.
+           I build AI systems that don’t freak out when real data rolls in: semantic search, 
+            retrieval tools, and dashboards that make sure everything behaves!
           </p>
           <p class="hero-meta">
-            I care about three things: clean pipelines, good observability, and code
-            that future-me will not hate. This site is basically my tiny mission control
-            for projects – with live demos you can click around instead of just vibes
-            and buzzwords.
+           I’m all about making things run smoothly and actually understanding what’s happening 
+            under the hood. This site is a small space where you can click around and try the 
+            projects yourself.
           </p>
 
           <div class="hero-badges">
@@ -916,7 +914,7 @@
               <div>
                 <div class="hero-spec-label">What I like building</div>
                 <div class="hero-spec-main">
-                  Tools that live between ML models and the real world.
+                  Tools between ML models and the real world.
                 </div>
                 <div class="hero-spec-sub">
                   Things like embeddings + FAISS, Redis queues, and simple
@@ -928,8 +926,8 @@
                 <div class="hero-spec-label">Current “range”</div>
                 <div class="spec-row">
                   <div class="spec-pill">
-                    2025–2027
-                    <span> · VT CS, AI / data focus</span>
+                    Graduating May 2027
+                    <span> · VT CS </span>
                   </div>
                   <div class="spec-pill">
                     Live demos
@@ -938,12 +936,7 @@
                 </div>
               </div>
               <div>
-                <div class="hero-spec-label">How I work</div>
-                <div class="hero-spec-sub">
-                  Start small, make it observable, then earn the right to scale.
-                  If I can’t walk through it out loud or trace it from a CLI,
-                  it’s not done yet.
-                </div>
+                
               </div>
             </div>
           </div>
@@ -953,10 +946,10 @@
       <!-- PROJECTS -->
       <section id="projects" class="section">
         <div class="section-header">
-          <h2 class="section-title">Selected projects</h2>
+          <h2 class="section-title">Projects</h2>
           <p class="section-sub">
-            A few of the systems I’ve shipped so far – with more on the way as I
-            keep leveling up my AI + backend brain.
+            A few of the repos i've built so far with more on the way as I
+            keep leveling up my AI + backend!
           </p>
         </div>
 
@@ -1030,10 +1023,7 @@
       <section id="demos" class="section">
         <div class="section-header">
           <h2 class="section-title">Live demos</h2>
-          <p class="section-sub">
-            Click around, break things (gently), and see how I think about
-            routing questions and ranking results – all running right in the browser.
-          </p>
+         
         </div>
 
         <div class="demos-grid">
@@ -1085,9 +1075,8 @@
               <div>
                 <div class="panel-title">Semantic search sandbox</div>
                 <div class="panel-desc">
-                  A tiny, browser-only version of my retrieval brain. It pretends
-                  to be a semantic search engine over “project notes” and gives you
-                  top matches using a toy scoring scheme.
+                 It pretends to be a little semantic search tool and gives you the best 
+                  matches using a simple scoring trick.
                 </div>
               </div>
               <div class="panel-label">Demo · Search</div>
@@ -1243,32 +1232,32 @@
       }
     });
 
-    const docs = [
-      {
-        title: "Embeddings over CAD notes",
-        snippet:
-          "Using SentenceTransformers + FAISS to search mechanical part notes and comments with natural language queries.",
-        keywords: ["semantic", "faiss", "embeddings", "cad", "notes"],
-      },
-      {
-        title: "Redis-backed retrieval queue",
-        snippet:
-          "Node.js API where each retrieval request becomes a job in Redis; workers handle jobs and push status updates.",
-        keywords: ["queue", "redis", "workers", "jobs", "api"],
-      },
-      {
-        title: "Status dashboard",
-        snippet:
-          "React front-end that surfaces job states, simple latency buckets, and failure rates for the queue system.",
-        keywords: ["dashboard", "status", "latency", "react"],
-      },
-      {
-        title: "CLI tracing tool",
-        snippet:
-          "Local CLI to trace a query from text → embedding → FAISS top-k results for easier debugging.",
-        keywords: ["cli", "trace", "semantic", "debug"],
-      },
-    ];
+   const docs = [
+  {
+    title: "Semantic search notes",
+    snippet:
+      "A tiny search tool that finds the most relevant notes using simple embeddings.",
+    keywords: ["search", "semantic", "embeddings", "notes"],
+  },
+  {
+    title: "Job queue demo",
+    snippet:
+      "Each request goes into a small queue, and workers pick them up and process them.",
+    keywords: ["queue", "jobs", "workers"],
+  },
+  {
+    title: "Status dashboard",
+    snippet:
+      "A clean little dashboard that shows what’s running and how fast things are moving.",
+    keywords: ["dashboard", "status", "latency"],
+  },
+  {
+    title: "CLI tracing tool",
+    snippet:
+      "A command-line tool that shows how a search goes from text to results.",
+    keywords: ["cli", "trace", "search"],
+  },
+];
 
     const searchInput = document.getElementById("search-input");
     const searchResults = document.getElementById("search-results");
