@@ -16,17 +16,17 @@
   />
   <style>
     :root {
-      --bg: #f5f5f7;
-      --panel: #ffffff;
-      --fg-main: #111827;
-      --fg-muted: #6b7280;
-      --fg-soft: #9ca3af;
+      --bg: #020617;
+      --panel: #050816;
+      --fg-main: #e5e7eb;
+      --fg-muted: #9ca3af;
+      --fg-soft: #6b7280;
       --accent: #d0102a; /* Tesla red inspired */
-      --accent-soft: rgba(208, 16, 42, 0.07);
-      --border-subtle: rgba(17, 24, 39, 0.08);
+      --accent-soft: rgba(208, 16, 42, 0.16);
+      --border-subtle: rgba(148, 163, 184, 0.25);
       --radius-lg: 20px;
       --radius-pill: 999px;
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.18);
+      --shadow-soft: 0 22px 60px rgba(0, 0, 0, 0.7);
     }
 
     * {
@@ -39,11 +39,29 @@
       font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
         sans-serif;
       background:
-        radial-gradient(circle at top, rgba(0, 0, 0, 0.12), transparent 52%),
+        radial-gradient(circle at top left, rgba(148, 163, 253, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.16), transparent 55%),
+        radial-gradient(circle at top right, rgba(248, 113, 113, 0.18), transparent 60%),
         var(--bg);
       color: var(--fg-main);
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
+    }
+
+    body::before {
+      /* fake starfield */
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.4) 0, transparent 2px),
+        radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.35) 0, transparent 2px),
+        radial-gradient(circle at 30% 70%, rgba(248, 250, 252, 0.4) 0, transparent 2px),
+        radial-gradient(circle at 60% 50%, rgba(248, 250, 252, 0.35) 0, transparent 2px);
+      background-size: 420px 420px, 520px 520px, 480px 480px, 560px 560px;
+      opacity: 0.35;
+      z-index: -1;
     }
 
     a {
@@ -66,13 +84,13 @@
       gap: 18px;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
-      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: rgba(15, 23, 42, 0.92);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.5);
       position: sticky;
       top: 12px;
       z-index: 20;
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(18px);
     }
 
     .brand {
@@ -82,6 +100,7 @@
       font-size: 0.86rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
+      color: var(--fg-muted);
     }
 
     .brand-badge {
@@ -95,7 +114,7 @@
       color: #ffffff;
       font-size: 0.65rem;
       font-weight: 700;
-      box-shadow: 0 10px 24px rgba(208, 16, 42, 0.6);
+      box-shadow: 0 10px 24px rgba(208, 16, 42, 0.7);
     }
 
     .nav-links {
@@ -136,18 +155,19 @@
     .chip {
       border-radius: var(--radius-pill);
       padding: 4px 10px;
-      background: #0f172a;
+      background: #020617;
       color: #e5e7eb;
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
+      border: 1px solid rgba(148, 163, 184, 0.7);
     }
 
     .nav-btn {
       border-radius: var(--radius-pill);
       padding: 6px 14px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      background: #ffffff;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.95);
       font-size: 0.8rem;
       display: inline-flex;
       align-items: center;
@@ -158,24 +178,25 @@
         transform 0.13s ease,
         border 0.13s ease,
         background 0.13s ease;
+      color: var(--fg-main);
     }
 
     .nav-btn.primary {
-      background: linear-gradient(120deg, #111827, #000000);
+      background: linear-gradient(120deg, #000000, #111827);
       color: #f9fafb;
       border-color: transparent;
-      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.7);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.9);
     }
 
     .nav-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
-      border-color: rgba(148, 163, 184, 0.9);
-      background: #f9fafb;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.9);
+      border-color: rgba(248, 250, 252, 0.9);
+      background: rgba(15, 23, 42, 1);
     }
 
     .nav-btn.primary:hover {
-      background: linear-gradient(120deg, #000000, #111827);
+      background: linear-gradient(120deg, #020617, #000000);
     }
 
     @media (max-width: 840px) {
@@ -220,7 +241,7 @@
       font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.28em;
-      color: var(--fg-soft);
+      color: var(--fg-muted);
       margin-bottom: 10px;
     }
 
@@ -246,7 +267,7 @@
     .hero-tagline {
       font-size: 1rem;
       max-width: 34rem;
-      color: #111827;
+      color: var(--fg-main);
       margin-bottom: 10px;
     }
 
@@ -267,9 +288,10 @@
       border-radius: var(--radius-pill);
       padding: 5px 12px;
       border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(15, 23, 42, 0.9);
       font-size: 0.8rem;
       backdrop-filter: blur(10px);
+      color: #e5e7eb;
     }
 
     .hero-actions {
@@ -281,7 +303,7 @@
 
     .hero-secondary {
       font-size: 0.8rem;
-      color: var(--fg-soft);
+      color: var(--fg-muted);
     }
 
     .hero-secondary span {
@@ -294,14 +316,25 @@
 
     .hero-card {
       border-radius: 28px;
-      background: radial-gradient(circle at top, #ffffff 0, #e5e7eb 40%, #d1d5db 90%);
+      background: radial-gradient(circle at top, #0f172a 0, #020617 50%, #000000 100%);
       padding: 18px 18px 16px;
-      border: 1px solid rgba(148, 163, 184, 0.42);
+      border: 1px solid rgba(148, 163, 184, 0.55);
       box-shadow: var(--shadow-soft);
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
       gap: 16px;
       align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 10% 0, rgba(248, 250, 252, 0.16), transparent 55%);
+      pointer-events: none;
+      opacity: 0.7;
     }
 
     @media (max-width: 620px) {
@@ -315,6 +348,8 @@
       align-items: center;
       justify-content: center;
       padding: 10px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-photo-inner {
@@ -323,8 +358,8 @@
       border-radius: 999px;
       overflow: hidden;
       position: relative;
-      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.5);
-      border: 4px solid #ffffff;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+      border: 4px solid #020617;
       background: #000000;
     }
 
@@ -332,7 +367,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 20% 0, rgba(255, 255, 255, 0.35), transparent 45%);
+      background: radial-gradient(circle at 20% 0, rgba(255, 255, 255, 0.24), transparent 45%);
       mix-blend-mode: screen;
       pointer-events: none;
     }
@@ -350,14 +385,14 @@
       left: 16px;
       border-radius: var(--radius-pill);
       padding: 5px 10px;
-      background: rgba(17, 24, 39, 0.92);
+      background: rgba(15, 23, 42, 0.96);
       color: #f9fafb;
       font-size: 0.74rem;
       display: inline-flex;
       align-items: center;
       gap: 6px;
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.7);
     }
 
     .hero-photo-tag-dot {
@@ -365,12 +400,14 @@
       height: 7px;
       border-radius: 50%;
       background: #22c55e;
-      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.28);
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.35);
     }
 
     .hero-specs {
       display: grid;
       gap: 10px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-spec-label {
@@ -387,7 +424,7 @@
 
     .hero-spec-sub {
       font-size: 0.86rem;
-      color: var(--fg-soft);
+      color: var(--fg-muted);
     }
 
     .spec-row {
@@ -399,9 +436,10 @@
     .spec-pill {
       border-radius: 16px;
       padding: 6px 10px;
-      background: #111827;
+      background: rgba(15, 23, 42, 0.9);
       color: #f9fafb;
       font-size: 0.78rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
     }
 
     .spec-pill span {
@@ -420,7 +458,7 @@
       gap: 10px;
       align-items: flex-end;
       margin-bottom: 18px;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
       padding-bottom: 8px;
     }
 
@@ -434,6 +472,7 @@
     .section-sub {
       font-size: 0.88rem;
       color: var(--fg-soft);
+      max-width: 32rem;
     }
 
     @media (max-width: 640px) {
@@ -443,7 +482,7 @@
       }
     }
 
-    /* Demos grid */
+    /* Demos grid (2 demos only) */
 
     .demos-grid {
       display: grid;
@@ -461,7 +500,7 @@
       border-radius: var(--radius-lg);
       background: var(--panel);
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.7);
       padding: 16px 16px 14px;
       display: flex;
       flex-direction: column;
@@ -484,7 +523,7 @@
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--fg-soft);
+      color: var(--fg-muted);
     }
 
     .panel-desc {
@@ -504,19 +543,20 @@
       padding: 2px 8px;
       border: 1px solid rgba(148, 163, 184, 0.6);
       font-size: 0.72rem;
-      color: var(--fg-soft);
+      color: var(--fg-muted);
+      background: rgba(15, 23, 42, 0.8);
     }
 
     .demo-body {
       border-radius: 14px;
-      border: 1px dashed rgba(148, 163, 184, 0.6);
+      border: 1px dashed rgba(148, 163, 184, 0.7);
       padding: 10px;
       font-size: 0.84rem;
-      background: var(--accent-soft);
+      background: rgba(15, 23, 42, 0.9);
     }
 
     .demo-body-inner {
-      background: #0b1120;
+      background: #020617;
       color: #e5e7eb;
       border-radius: 12px;
       padding: 10px;
@@ -545,7 +585,7 @@
       padding: 6px 8px;
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.95);
       color: #f9fafb;
       font-family: inherit;
       font-size: 0.78rem;
@@ -566,9 +606,9 @@
     .demo-output {
       min-height: 46px;
       border-radius: 10px;
-      border: 1px dashed rgba(148, 163, 184, 0.8);
+      border: 1px dashed rgba(148, 163, 184, 0.9);
       padding: 6px 8px;
-      background: rgba(15, 23, 42, 0.78);
+      background: rgba(15, 23, 42, 0.9);
       color: #e5e7eb;
     }
 
@@ -590,8 +630,8 @@
       font-size: 0.78rem;
       padding: 4px 6px;
       border-radius: 8px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.6);
     }
 
     .demo-doc strong {
@@ -600,84 +640,6 @@
 
     .demo-doc span {
       color: #9ca3af;
-    }
-
-    .slider-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .slider-row input[type="range"] {
-      flex: 1;
-    }
-
-    .slider-pill {
-      border-radius: 999px;
-      padding: 4px 10px;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      font-size: 0.72rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .viz-summary {
-      font-size: 0.78rem;
-      color: #d1d5db;
-    }
-
-    /* Embedding animation dots */
-
-    .dot-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 10px);
-      gap: 6px;
-      margin-top: 6px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: #1f2937;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .dot::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: radial-gradient(circle at 30% 0, #facc15, #d0102a);
-      opacity: 0;
-      animation: pulse 2.4s infinite;
-    }
-
-    .dot:nth-child(3)::after,
-    .dot:nth-child(7)::after,
-    .dot:nth-child(11)::after,
-    .dot:nth-child(16)::after {
-      animation-delay: 0.3s;
-    }
-
-    .dot:nth-child(5)::after,
-    .dot:nth-child(9)::after,
-    .dot:nth-child(13)::after {
-      animation-delay: 0.6s;
-    }
-
-    @keyframes pulse {
-      0%,
-      100% {
-        opacity: 0.2;
-        transform: scale(0.9);
-      }
-      35% {
-        opacity: 1;
-        transform: scale(1.06);
-      }
     }
 
     /* Projects */
@@ -699,7 +661,7 @@
       background: var(--panel);
       border: 1px solid var(--border-subtle);
       padding: 16px 16px 14px;
-      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7);
       display: flex;
       flex-direction: column;
       gap: 8px;
@@ -716,11 +678,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        110deg,
-        rgba(255, 255, 255, 0.12),
-        transparent 55%
-      );
+      background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.14), transparent 60%);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.16s ease;
@@ -728,8 +686,8 @@
 
     .project-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 20px 46px rgba(15, 23, 42, 0.24);
-      border-color: rgba(15, 23, 42, 0.5);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+      border-color: rgba(248, 250, 252, 0.6);
     }
 
     .project-card:hover::after {
@@ -752,7 +710,7 @@
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--fg-soft);
+      color: var(--fg-muted);
     }
 
     .project-desc {
@@ -777,7 +735,8 @@
       padding: 2px 8px;
       border: 1px solid rgba(148, 163, 184, 0.8);
       font-size: 0.74rem;
-      color: var(--fg-soft);
+      color: var(--fg-muted);
+      background: rgba(15, 23, 42, 0.9);
     }
 
     .project-cta {
@@ -807,7 +766,7 @@
       background: var(--panel);
       border: 1px solid var(--border-subtle);
       padding: 16px 16px 14px;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.7);
       font-size: 0.9rem;
       color: var(--fg-muted);
     }
@@ -843,7 +802,7 @@
     footer {
       margin-top: 40px;
       padding-top: 14px;
-      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      border-top: 1px solid rgba(148, 163, 184, 0.5);
       display: flex;
       justify-content: space-between;
       gap: 10px;
@@ -858,16 +817,16 @@
     <header class="top-nav">
       <div class="brand">
         <div class="brand-badge">TR</div>
-        <span>AI systems / portfolio</span>
+        <span>AI systems · portfolio</span>
       </div>
       <nav class="nav-links">
         <a href="#overview">Overview</a>
-        <a href="#demos">Live demos</a>
         <a href="#projects">Projects</a>
+        <a href="#demos">Demos</a>
         <a href="#about">About</a>
       </nav>
       <div class="nav-actions">
-        <div class="chip">Summer 2026 · Intern</div>
+        <div class="chip">Summer 2026 · intern</div>
         <a
           class="nav-btn primary"
           href="https://www.linkedin.com/in/thanviravala"
@@ -892,46 +851,46 @@
       <section id="overview" class="hero">
         <div>
           <div class="hero-eyebrow">
-            <span>AI-driven portfolio</span> · live demos
+            <span>AI + data</span> · built by a VT CS student who overthinks systems
           </div>
           <h1 class="hero-title">Thanvi Ravala</h1>
           <div class="hero-subtitle">
             Computer Science · Virginia Tech · AI & Systems
           </div>
           <p class="hero-tagline">
-            I like building production-style systems that take messy data paths
-            and turn them into clean, observable pipelines: semantic search
-            engines, retrieval platforms, and ML-powered tools.
+            I like taking chaotic, real-world data and turning it into clean,
+            debuggable systems – semantic search engines, retrieval services,
+            and little dashboards that actually tell you what the model is doing.
           </p>
           <p class="hero-meta">
-            This site is wired with live, in-browser demos – a chatbot that talks
-            through my work, a semantic search sandbox, and lightweight model
-            visualizers inspired by real fleet telemetry dashboards.
+            If you scroll, you’ll see the two projects I’m most proud of right now,
+            plus a tiny chatbot and search sandbox you can poke at. Think of this
+            as my mini control room in space, but for code.
           </p>
 
           <div class="hero-badges">
             <div class="hero-pill">Semantic search & retrieval</div>
             <div class="hero-pill">Python · Node.js · Java</div>
-            <div class="hero-pill">AWS · GitHub · CLI</div>
+            <div class="hero-pill">AWS · GitHub · CLI workflows</div>
           </div>
 
           <div class="hero-actions">
             <a
               class="nav-btn primary"
-              href="#demos"
+              href="#projects"
             >
-              Try the live demos
+              Jump to projects
             </a>
             <a
               class="nav-btn"
-              href="mailto:thanviravala3@gmail.com"
+              href="#demos"
             >
-              Email me
+              Play with the demos
             </a>
           </div>
           <div class="hero-secondary">
-            Built for teams that care about
-            <span>latency, reliability, and real-world data.</span>
+            Goal: build things that feel
+            <span>fast, reliable, and not annoying to debug at 2 a.m.</span>
           </div>
         </div>
 
@@ -947,40 +906,41 @@
                 />
                 <div class="hero-photo-tag">
                   <span class="hero-photo-tag-dot"></span>
+                  <span>Online · probably coding or traveling</span>
                 </div>
               </div>
             </div>
 
             <div class="hero-specs">
               <div>
-                <div class="hero-spec-label">Focus areas</div>
+                <div class="hero-spec-label">What I like building</div>
                 <div class="hero-spec-main">
-                  AI engineering, backend systems, and platform tools.
+                  Systems that sit between ML and infra.
                 </div>
                 <div class="hero-spec-sub">
-                  From embeddings and vector search to queues, workers, and
-                  dashboards.
+                  Stuff like: embeddings + FAISS, Redis queues, and small
+                  dashboards so you’re not guessing why a request failed.
                 </div>
               </div>
               <div>
                 <div class="hero-spec-label">Current “range”</div>
                 <div class="spec-row">
                   <div class="spec-pill">
-                    2025–2027
-                    <span> · VT CS + AI / data focus</span>
+                    Graduating May 2027
+                    <span> · VT CS, AI / data focus</span>
                   </div>
                   <div class="spec-pill">
                     Live demos
-                    <span> · chatbot, search, viz</span>
+                    <span> · chatbot + search</span>
                   </div>
                 </div>
               </div>
               <div>
-                <div class="hero-spec-label">Built like a fleet</div>
+                <div class="hero-spec-label">How I think</div>
                 <div class="hero-spec-sub">
-                  Small tools, wired together: CLI prototypes, retrieval
-                  services, and simple frontends that make the models
-                  understandable.
+                  Start small, make it observable, then scale. If I can’t explain
+                  it with a simple diagram or CLI trace, it’s probably not ready
+                  yet.
                 </div>
               </div>
             </div>
@@ -988,208 +948,13 @@
         </div>
       </section>
 
-      <!-- LIVE DEMOS -->
-      <section id="demos" class="section">
-        <div class="section-header">
-          <h2 class="section-title">Live demos</h2>
-          <p class="section-sub">
-            A lightweight playground to poke at how I think about AI systems –
-            all running directly in the browser for quick inspection.
-          </p>
-        </div>
-
-        <div class="demos-grid">
-          <!-- Left column: chatbot + semantic search -->
-          <div class="panel">
-            <div class="panel-header">
-              <div>
-                <div class="panel-title">Project explainer chatbot</div>
-                <div class="panel-desc">
-                  Ask about my work and this small scripted bot routes you to
-                  the right project and tech stack.
-                </div>
-              </div>
-              <div class="panel-label">Chat · In-browser</div>
-            </div>
-            <div class="pill-row">
-              <div class="tiny-pill">Rule-based router</div>
-              <div class="tiny-pill">Projects Q&A</div>
-              <div class="tiny-pill">No backend</div>
-            </div>
-
-            <div class="demo-body">
-              <div class="demo-body-inner">
-                <div class="demo-label">Chat with the portfolio</div>
-                <div class="demo-input-row">
-                  <input
-                    type="text"
-                    id="chat-input"
-                    placeholder="Ask: “What’s your semantic search project?”"
-                  />
-                  <button id="chat-send">Send</button>
-                </div>
-                <div id="chat-output" class="demo-output">
-                  <span>bot:</span> ask me about semantic search, distributed
-                  queues, or what I like to build.
-                </div>
-                <div class="demo-hint">
-                  Example prompts: “How did you build semantic search?”, “Do
-                  you know queues?”, “What tech do you use?”
-                </div>
-              </div>
-            </div>
-
-            <div class="panel-header" style="margin-top: 16px;">
-              <div>
-                <div class="panel-title">Semantic search demo</div>
-                <div class="panel-desc">
-                  A tiny search box over a few project “notes” that simulates
-                  relevance scoring with in-browser ranking.
-                </div>
-              </div>
-              <div class="panel-label">Search · Ranking</div>
-            </div>
-            <div class="pill-row">
-              <div class="tiny-pill">Keyword scoring</div>
-              <div class="tiny-pill">Project notes</div>
-              <div class="tiny-pill">Top-3 results</div>
-            </div>
-
-            <div class="demo-body">
-              <div class="demo-body-inner">
-                <div class="demo-label">Search my project notes</div>
-                <div class="demo-input-row">
-                  <input
-                    type="text"
-                    id="search-input"
-                    placeholder="Try: “FAISS embeddings” or “job queue dashboard”"
-                  />
-                  <button id="search-run">Search</button>
-                </div>
-                <div id="search-results" class="demo-docs">
-                  <!-- Populated by JS -->
-                </div>
-                <div class="demo-hint">
-                  This is a front-end approximation of semantic search –
-                  production versions use embeddings + FAISS in Python.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right column: visualizer, embedding animation, playground -->
-          <div class="panel">
-            <div class="panel-header">
-              <div>
-                <div class="panel-title">Model depth visualizer</div>
-                <div class="panel-desc">
-                  Slide through “layers” and watch how latency, explainability,
-                  and capacity trade off.
-                </div>
-              </div>
-              <div class="panel-label">Viz · Tradeoffs</div>
-            </div>
-            <div class="pill-row">
-              <div class="tiny-pill">Latency vs. depth</div>
-              <div class="tiny-pill">Toy metrics</div>
-            </div>
-
-            <div class="demo-body">
-              <div class="demo-body-inner">
-                <div class="demo-label">Depth slider</div>
-                <div class="slider-row">
-                  <input
-                    type="range"
-                    id="depth-slider"
-                    min="1"
-                    max="12"
-                    value="4"
-                  />
-                  <div class="slider-pill" id="depth-pill">
-                    depth: 4 · est. latency ~62ms
-                  </div>
-                </div>
-                <div id="depth-summary" class="viz-summary">
-                  Balanced profile: good capacity with comfortable latency and
-                  decent interpretability.
-                </div>
-              </div>
-            </div>
-
-            <div class="panel-header" style="margin-top: 16px;">
-              <div>
-                <div class="panel-title">Embeddings flow & playground</div>
-                <div class="panel-desc">
-                  Animated “vector grid” plus quick shortcuts that wire into the
-                  chatbot and search demo.
-                </div>
-              </div>
-              <div class="panel-label">Embeddings · UX</div>
-            </div>
-            <div class="pill-row">
-              <div class="tiny-pill">Vector grid</div>
-              <div class="tiny-pill">Interaction shortcuts</div>
-            </div>
-
-            <div class="demo-body">
-              <div class="demo-body-inner">
-                <div class="demo-label">Embedding space (stylized)</div>
-                <div class="dot-grid">
-                  <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-                  <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-                  <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-                  <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-                </div>
-                <div class="demo-hint">
-                  Each “lit” dot represents an activated region in a simplified
-                  embedding space for different technical notes.
-                </div>
-
-                <div style="margin-top: 10px;">
-                  <div class="demo-label">Playground shortcuts</div>
-                  <div class="pill-row">
-                    <button
-                      class="demo-input-row"
-                      id="btn-semantic"
-                      style="border-radius:999px;border:1px solid rgba(148,163,184,0.7);background:#020617;padding:4px 10px;font-size:0.74rem;color:#e5e7eb;cursor:pointer;"
-                    >
-                      Ask about semantic search
-                    </button>
-                    <button
-                      class="demo-input-row"
-                      id="btn-queues"
-                      style="border-radius:999px;border:1px solid rgba(148,163,184,0.7);background:#020617;padding:4px 10px;font-size:0.74rem;color:#e5e7eb;cursor:pointer;"
-                    >
-                      Ask about queues & workers
-                    </button>
-                    <button
-                      class="demo-input-row"
-                      id="btn-dashboard"
-                      style="border-radius:999px;border:1px solid rgba(148,163,184,0.7);background:#020617;padding:4px 10px;font-size:0.74rem;color:#e5e7eb;cursor:pointer;"
-                    >
-                      Search “status dashboard”
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div style="margin-top: 12px; font-size: 0.8rem; color: var(--fg-soft);">
-              This column mirrors the kind of quick, inspectable tools I like
-              building for internal teams – fast to open, easy to reason about,
-              and directly tied to real metrics.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROJECTS -->
+      <!-- PROJECTS (now above demos) -->
       <section id="projects" class="section">
         <div class="section-header">
           <h2 class="section-title">Selected projects</h2>
           <p class="section-sub">
-            Small, focused repos that show how I think about retrieval, queues,
-            and developer-facing UX.
+            These are the two repos that feel the most “me” right now – a semantic
+            search engine and a tiny fleet-style retrieval platform.
           </p>
         </div>
 
@@ -1206,22 +971,23 @@
                   Semantic Search for Technical Notes
                 </div>
                 <div class="project-desc">
-                  A compact semantic search engine over CAD part descriptions
-                  and engineering notes. Uses pre-trained SentenceTransformers
-                  embeddings and a FAISS index to return context-aware results
-                  from natural language queries.
+                  A compact semantic search engine over CAD part descriptions and
+                  engineering notes. I use a pre-trained SentenceTransformers model
+                  with a FAISS index so you can type normal questions and still land
+                  on the right snippets.
                 </div>
               </div>
               <div class="project-label">Retrieval · Python</div>
             </div>
             <div class="project-meta">
-              Clear data pipeline, explainable index artifacts, and a CLI-style
-              query interface for fast iteration.
+              Everything is intentionally small and readable: data folder,
+              embeddings, index, and a simple CLI to trace a query from text →
+              vector → top-k results.
             </div>
             <div class="project-tags">
               <span class="project-pill">Python · SentenceTransformers</span>
               <span class="project-pill">FAISS</span>
-              <span class="project-pill">CLI workflow</span>
+              <span class="project-pill">CLI debug flow</span>
             </div>
             <div class="project-cta">Open on GitHub →</div>
           </a>
@@ -1236,16 +1002,17 @@
               <div>
                 <div class="project-name">Fleet-style Semantic Platform</div>
                 <div class="project-desc">
-                  Node.js backend with a Redis job queue and React dashboard for
-                  tracking retrieval jobs. Mimics a simplified fleet telemetry
-                  view where every request becomes a traceable unit of work.
+                  Node.js backend with a Redis job queue and a React dashboard for
+                  tracking retrieval jobs. Every request becomes a “job” you can
+                  actually see, instead of vanishing into the void.
                 </div>
               </div>
               <div class="project-label">Queues · Full stack</div>
             </div>
             <div class="project-meta">
-              JWT-authenticated API, background workers, and a simple web UI for
-              visibility into status and throughput.
+              JWT-authenticated API, background workers, and a simple status panel
+              for job counts and basic latency. It’s my mini version of a fleet
+              telemetry view.
             </div>
             <div class="project-tags">
               <span class="project-pill">Node.js · Express</span>
@@ -1257,45 +1024,138 @@
         </div>
       </section>
 
+      <!-- LIVE DEMOS (only 2 demos now) -->
+      <section id="demos" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Live demos</h2>
+          <p class="section-sub">
+            Tiny, in-browser versions of how I think: a chatbot that talks through
+            my work, and a mini “semantic search” sandbox over fake project notes.
+          </p>
+        </div>
+
+        <div class="demos-grid">
+          <!-- Demo 1: chatbot -->
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Project explainer chatbot</div>
+                <div class="panel-desc">
+                  Ask about my projects, stack, or what I’m trying to learn next.
+                  It’s intentionally simple, but wired to route you to the right
+                  part of the page.
+                </div>
+              </div>
+              <div class="panel-label">Demo · Chat</div>
+            </div>
+            <div class="pill-row">
+              <div class="tiny-pill">Rule-based (for now)</div>
+              <div class="tiny-pill">Projects Q&A</div>
+              <div class="tiny-pill">No backend · all front-end</div>
+            </div>
+
+            <div class="demo-body">
+              <div class="demo-body-inner">
+                <div class="demo-label">Chat with my portfolio</div>
+                <div class="demo-input-row">
+                  <input
+                    type="text"
+                    id="chat-input"
+                    placeholder='Try: "How did you build semantic search?"'
+                  />
+                  <button id="chat-send">Send</button>
+                </div>
+                <div id="chat-output" class="demo-output">
+                  <span>bot:</span> ask me about semantic search, queues, VT, or
+                  what I’m trying to build next.
+                </div>
+                <div class="demo-hint">
+                  Ideas: “What’s your stack?”, “Do you work with Redis?”,
+                  “What kind of internships are you looking for?”
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Demo 2: semantic search sandbox -->
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Semantic search sandbox</div>
+                <div class="panel-desc">
+                  This isn’t running a real embedding model in the browser (yet),
+                  but it mimics the ranking flow over a tiny set of “project
+                  notes”.
+                </div>
+              </div>
+              <div class="panel-label">Demo · Search</div>
+            </div>
+            <div class="pill-row">
+              <div class="tiny-pill">Toy relevance scoring</div>
+              <div class="tiny-pill">Top-k project notes</div>
+            </div>
+
+            <div class="demo-body">
+              <div class="demo-body-inner">
+                <div class="demo-label">Search my fake notes</div>
+                <div class="demo-input-row">
+                  <input
+                    type="text"
+                    id="search-input"
+                    placeholder='Try: "FAISS embeddings" or "job queue"'
+                  />
+                  <button id="search-run">Search</button>
+                </div>
+                <div id="search-results" class="demo-docs">
+                  <!-- Populated by JS -->
+                </div>
+                <div class="demo-hint">
+                  The real project uses SentenceTransformers + FAISS in Python –
+                  this is just the “what would we return?” part, in space-themed
+                  UI.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ABOUT -->
       <section id="about" class="section">
         <div class="section-header">
           <h2 class="section-title">About & stack</h2>
           <p class="section-sub">
-            Where I’m based, what I’m studying, and the tools I keep reaching
-            for when building systems like the ones above.
+            A quick snapshot of who I am, where I am, and what I usually reach for
+            when I open VS Code at midnight.
           </p>
         </div>
 
         <div class="about-layout">
           <div class="about-card">
-            <h3>Profile</h3>
+            <h3>Who I am</h3>
             <p>
-              I’m a Computer Science student at Virginia Tech, focused on AI
-              engineering, data workflows, and backend systems. I like projects
-              that sit between models and infrastructure: retrieval pipelines,
-              internal dashboards, and tools that help teams understand what
-              their models are actually doing.
+              I’m a Computer Science student at Virginia Tech who loves being in
+              that middle layer between “cool ML model” and “actually useful
+              product.” I get excited about retrieval pipelines, queues, and
+              dashboards that make systems less mysterious.
             </p>
             <p>
-              This portfolio follows the same philosophy: everything that looks
-              like a “card” or “panel” is wired up to some kind of interaction –
-              chat, search, sliders, or shortcuts – so you can inspect the
-              system instead of just reading about it.
+              My projects are built with the same vibe as this page: small,
+              inspectable, and honest about what’s going on under the hood. If
+              something breaks, I want it to be obvious where to look first.
             </p>
             <ul class="about-list">
-              <li><span>Location:</span> Virginia, USA</li>
+              <li><span>Location:</span> Virginia, USA (but always down to travel)</li>
               <li><span>School:</span> Virginia Tech · B.S. in Computer Science</li>
-              <li><span>Focus:</span> AI engineering, data, and platform tools</li>
-              <li><span>Currently:</span> Building out more live demos + infra-style projects</li>
+              <li><span>Focus:</span> AI engineering, data workflows, platform tools</li>
+              <li><span>Currently:</span> chasing AI / systems internships for Summer 2026</li>
             </ul>
           </div>
           <div class="about-card">
-            <h3>Tech I use</h3>
+            <h3>Tech I reach for</h3>
             <ul class="about-list">
               <li>
-                <span>Languages:</span> Python, Java, JavaScript/TypeScript, basic
-                SQL
+                <span>Languages:</span> Python, Java, JavaScript/TypeScript, basic SQL
               </li>
               <li>
                 <span>AI / data:</span> Pandas, NumPy, SentenceTransformers,
@@ -1309,15 +1169,15 @@
                 <span>Frontend:</span> React basics, HTML/CSS, simple dashboards
               </li>
               <li>
-                <span>Cloud & tooling:</span> AWS, Git, GitHub, CLI flows, GitHub
-                Pages
+                <span>Cloud & tooling:</span> AWS, Git, GitHub, CLI-first workflows,
+                GitHub Pages
               </li>
             </ul>
             <p style="margin-top: 8px;">
-              I’m especially interested in roles where I can combine ML with
-              systems thinking: using embeddings and models, but also caring
-              deeply about observability, deployment, and the “boring” parts
-              that make tools reliable.
+              I’m especially happy in roles where I can touch both models and
+              infrastructure: think embeddings + vector search, but also logs,
+              metrics, and the boring reliability work that keeps everything
+              running.
             </p>
           </div>
         </div>
@@ -1325,8 +1185,8 @@
     </main>
 
     <footer>
-      <span>© <span id="year"></span> Thanvi Ravala · Built for humans and debuggers</span>
-      <span>Live, inspectable portfolio – no black-box slides.</span>
+      <span>© <span id="year"></span> Thanvi Ravala · VT CS</span>
+      <span>Built as a tiny mission control for my projects.</span>
     </footer>
   </div>
 
@@ -1338,36 +1198,36 @@
     const chatSend = document.getElementById("chat-send");
 
     function respondToChat(query) {
-      const q = query.toLowerCase();
+      const q = (query || "").toLowerCase();
       if (!q.trim()) {
-        return "ask me about semantic search, queues, dashboards, or what I’m studying at VT.";
+        return "Ask me about semantic search, queues, dashboards, VT, or what kind of roles I’m going after.";
       }
 
       if (q.includes("semantic") || q.includes("search") || q.includes("faiss")) {
-        return "My semantic search project uses a SentenceTransformers model with FAISS as the vector index. I treat the data like a small fleet of technical notes: clean embeddings, simple metadata, and a CLI so you can trace each query end-to-end.";
+        return "I built a semantic search project in Python using a SentenceTransformers model for embeddings and FAISS as the vector index. It’s small on purpose so you can follow a query from raw text all the way to the top-k results.";
       }
 
       if (q.includes("queue") || q.includes("redis") || q.includes("worker")) {
-        return "I have a Node.js + Redis project where every retrieval request becomes a job in a queue. Workers pick them up, process them, and the React dashboard shows status, progress, and basic throughput metrics.";
+        return "Yep, I have a Node.js + Redis project where every retrieval request becomes a job in a queue. Workers process jobs in the background and a React dashboard shows status and basic throughput so you’re not guessing what’s stuck.";
       }
 
       if (q.includes("dashboard") || q.includes("viz") || q.includes("visualizer")) {
-        return "I like building minimal dashboards that expose the guts of a system: job counts, simple latency buckets, and success/error rates. The visual pieces on this site mimic that approach in a tiny, front-end-only way.";
+        return "I like building dashboards that are simple but honest: job counts, rough latency buckets, and success/error rates. The idea is to make debugging feel less like guessing and more like reading a story.";
       }
 
       if (q.includes("school") || q.includes("vt") || q.includes("virginia tech")) {
-        return "I’m studying Computer Science at Virginia Tech, focusing on AI and data-heavy systems. I enjoy projects where I can combine ML with backend engineering and DevOps ideas.";
+        return "I’m a CS student at Virginia Tech, leaning into AI, data-heavy systems, and backend work. When I’m not coding, I’m probably running, traveling, or hunting for good food.";
       }
 
       if (q.includes("tech") || q.includes("stack") || q.includes("tools")) {
-        return "I work mostly with Python, Java, and JavaScript/TypeScript. For AI/data: Pandas, NumPy, SentenceTransformers. For backend: Node.js, Express, Redis, REST APIs. For infra: AWS, Git, GitHub.";
+        return "My main stack: Python, Java, and JavaScript/TypeScript. For AI/data: Pandas, NumPy, SentenceTransformers. For backend: Node.js, Express, Redis, REST APIs. For infra: AWS, Git, GitHub, and a lot of CLI.";
       }
 
       if (q.includes("intern") || q.includes("role") || q.includes("job")) {
-        return "I’m targeting AI engineering and systems-style internships for Summer 2026 – roles that sit between ML, infra, and data pipelines.";
+        return "I’m targeting AI engineering and systems-style internships for Summer 2026 – roles that live between ML, data pipelines, and platform engineering.";
       }
 
-      return "I’m a VT CS student focused on AI + systems. Ask me about semantic search, distributed queues, dashboards, or my tech stack, and I’ll route you to the right project.";
+      return "Short version: I’m a VT CS student who likes AI + systems. Ask about semantic search, queues, dashboards, or my stack, and I’ll point you to the right project.";
     }
 
     chatSend.addEventListener("click", () => {
@@ -1386,25 +1246,25 @@
       {
         title: "Embeddings over CAD notes",
         snippet:
-          "SentenceTransformers model + FAISS index to retrieve mechanical part notes with natural language queries.",
+          "Using SentenceTransformers + FAISS to search mechanical part notes and comments with natural language queries.",
         keywords: ["semantic", "faiss", "embeddings", "cad", "notes"],
       },
       {
         title: "Redis-backed retrieval queue",
         snippet:
-          "Node.js API where each retrieval request becomes a job in Redis; workers process jobs and push status updates.",
+          "Node.js API where each retrieval request becomes a job in Redis; workers handle jobs and push status updates.",
         keywords: ["queue", "redis", "workers", "jobs", "api"],
       },
       {
         title: "Status dashboard",
         snippet:
-          "React front-end that surfaces job states, basic latency buckets, and failure rates for the queue system.",
+          "React front-end that surfaces job states, simple latency buckets, and failure rates for the queue system.",
         keywords: ["dashboard", "status", "latency", "react"],
       },
       {
         title: "CLI tracing tool",
         snippet:
-          "Local CLI that lets you trace a query from input, to embedding, to top-k results in the semantic search engine.",
+          "Local CLI to trace a query from text → embedding → FAISS top-k results for easier debugging.",
         keywords: ["cli", "trace", "semantic", "debug"],
       },
     ];
@@ -1414,11 +1274,15 @@
     const searchRun = document.getElementById("search-run");
 
     function runSearch(query) {
-      const q = query.toLowerCase().split(/\s+/).filter(Boolean);
+      const qWords = (query || "")
+        .toLowerCase()
+        .split(/\s+/)
+        .filter(Boolean);
+
       const scored = docs
         .map((doc) => {
           let score = 0;
-          q.forEach((word) => {
+          qWords.forEach((word) => {
             if (doc.keywords.some((k) => k.includes(word))) {
               score += 2;
             }
@@ -1432,9 +1296,9 @@
         .sort((a, b) => b.score - a.score)
         .slice(0, 3);
 
-      if (!q.length || scored.length === 0) {
+      if (!qWords.length || scored.length === 0) {
         searchResults.innerHTML =
-          '<div class="demo-doc"><strong>No strong matches yet.</strong><br><span>Try: “FAISS”, “job queue”, or “status dashboard”.</span></div>';
+          '<div class="demo-doc"><strong>No strong matches yet.</strong><br><span>Try something like “FAISS”, “job queue”, or “status dashboard”.</span></div>';
         return;
       }
 
@@ -1456,57 +1320,8 @@
       }
     });
 
+    // show something by default
     runSearch("faiss");
-
-    const depthSlider = document.getElementById("depth-slider");
-    const depthPill = document.getElementById("depth-pill");
-    const depthSummary = document.getElementById("depth-summary");
-
-    function updateDepth(depth) {
-      const d = parseInt(depth, 10);
-      const latency = 20 + d * 10 + (d > 6 ? (d - 6) * 4 : 0);
-      depthPill.textContent = `depth: ${d} · est. latency ~${latency}ms`;
-
-      if (d <= 3) {
-        depthSummary.textContent =
-          "Shallow model: low latency and easy to reason about, but limited capacity on complex distributions.";
-      } else if (d <= 7) {
-        depthSummary.textContent =
-          "Balanced profile: good capacity with comfortable latency and decent interpretability – great default for many systems.";
-      } else {
-        depthSummary.textContent =
-          "Deep stack: strong capacity, but you trade off latency and interpretability. Needs careful monitoring and good observability.";
-      }
-    }
-
-    depthSlider.addEventListener("input", (e) => {
-      updateDepth(e.target.value);
-    });
-
-    updateDepth(depthSlider.value);
-
-    const btnSemantic = document.getElementById("btn-semantic");
-    const btnQueues = document.getElementById("btn-queues");
-    const btnDashboard = document.getElementById("btn-dashboard");
-
-    btnSemantic.addEventListener("click", () => {
-      chatInput.value = "How did you build your semantic search project?";
-      chatSend.click();
-      searchInput.value = "FAISS embeddings";
-      searchRun.click();
-    });
-
-    btnQueues.addEventListener("click", () => {
-      chatInput.value = "Do you have experience with distributed queues and workers?";
-      chatSend.click();
-      searchInput.value = "job queue workers";
-      searchRun.click();
-    });
-
-    btnDashboard.addEventListener("click", () => {
-      searchInput.value = "status dashboard latency";
-      searchRun.click();
-    });
   </script>
 </body>
 </html>
