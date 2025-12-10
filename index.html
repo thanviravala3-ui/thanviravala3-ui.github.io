@@ -50,8 +50,6 @@
       text-decoration: none;
     }
 
-    /* Layout shell */
-
     .page {
       max-width: 1120px;
       margin: 0 auto;
@@ -192,7 +190,7 @@
       }
     }
 
-    /* HERO like your screenshot */
+    /* HERO */
 
     .hero {
       display: grid;
@@ -210,16 +208,6 @@
       }
     }
 
-    .hero-eyebrow {
-      font-size: 0.84rem;
-      color: var(--fg-muted);
-      margin-bottom: 8px;
-    }
-
-    .hero-eyebrow span {
-      color: var(--accent);
-    }
-
     .hero-main-line {
       font-size: 2.4rem;
       margin-bottom: 4px;
@@ -227,16 +215,16 @@
     }
 
     .hero-name {
-      font-size: 2.6rem;
+      font-size: 2rem;
       font-weight: 700;
       background: linear-gradient(120deg, #e5e7eb, #a5b4fc, #38bdf8);
       -webkit-background-clip: text;
       color: transparent;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
 
     .hero-sub-line {
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin-bottom: 12px;
       color: var(--fg-main);
     }
@@ -362,7 +350,7 @@
       }
     }
 
-    /* GENERIC SECTION STYLES */
+    /* SECTIONS */
 
     .section {
       padding: 56px 4px 6px;
@@ -491,19 +479,7 @@
       letter-spacing: 0.16em;
     }
 
-    /* DEMOS */
-
-    .demos-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
-      gap: 18px;
-    }
-
-    @media (max-width: 960px) {
-      .demos-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
+    /* DEMO PANEL (single chatbot) */
 
     .panel {
       border-radius: var(--radius-lg);
@@ -631,27 +607,6 @@
       color: #9ca3af;
     }
 
-    .demo-docs {
-      display: grid;
-      gap: 4px;
-    }
-
-    .demo-doc {
-      font-size: 0.78rem;
-      padding: 4px 6px;
-      border-radius: 8px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-    }
-
-    .demo-doc strong {
-      color: #e5e7eb;
-    }
-
-    .demo-doc span {
-      color: #9ca3af;
-    }
-
     /* ABOUT + CONTACT */
 
     .about-grid {
@@ -750,12 +705,12 @@
       <nav class="nav-links">
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
-        <a href="#demos">Demos</a>
+        <a href="#demos">Chat</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="nav-actions">
-        <div class="nav-pill">Summer 2026 · Intern</div>
+        <div class="nav-pill">Summer 2026 Intern</div>
         <a
           class="nav-btn primary"
           href="https://www.linkedin.com/in/thanviravala"
@@ -779,29 +734,26 @@
     <main id="home" class="hero">
       <div>
         <p class="hero-main-line">Thanvi Ravala</p>
-        <h1 class="hero-name">Computer Science · Virginia Tech</h1>
+        <h1 class="hero-name">Computer Science at Virginia Tech</h1>
         <p class="hero-sub-line">
-          I like building things that sit between machine learning and the real world.
+          I like building simple tools that connect AI and data to real life.
         </p>
         <p class="hero-tagline">
-          I focus on semantic search, small retrieval tools, and dashboards that
-          make systems feel less mysterious. I want everything to be traceable,
-          from a user question to the database call that answered it.
+          I work on small search tools, basic dashboards, and control panels that make it easier to see what a system is doing and why.
         </p>
 
         <div class="hero-badges">
-          <div class="hero-pill">Semantic search and retrieval</div>
+          <div class="hero-pill">Semantic search and small AI tools</div>
           <div class="hero-pill">Python · Node.js · Java</div>
-          <div class="hero-pill">AWS · Redis · simple dashboards</div>
+          <div class="hero-pill">AWS · basic queues · clean layouts</div>
         </div>
 
         <div class="hero-actions">
           <a href="#projects" class="nav-btn primary">See my projects</a>
-          <a href="#demos" class="nav-btn">Try the demos</a>
+          <a href="#demos" class="nav-btn">Chat about my work</a>
         </div>
         <p class="hero-note">
-          Scroll down for a few focused repos, a playful chatbot that explains my work,
-          and a tiny semantic search sandbox.
+          You can scroll to see my projects or go to the chat section and ask simple questions about me and what I build.
         </p>
       </div>
 
@@ -825,8 +777,7 @@
       <div class="section-header">
         <h2 class="section-title">Projects</h2>
         <p class="section-sub">
-          A few small but opinionated repos that show how I think about AI,
-          data, and control surfaces.
+          These are small projects that show how I think about AI, data, and making systems easy to understand.
         </p>
       </div>
 
@@ -844,21 +795,18 @@
                 Semantic Search for Technical Notes
               </div>
               <div class="project-desc">
-                A compact semantic search engine over CAD part descriptions and
-                engineering notes that lets you type normal questions and still
-                land on the right snippets.
+                A simple semantic search tool over CAD part descriptions and notes. You can type a normal question and get helpful notes back.
               </div>
             </div>
-            <div class="project-label">Retrieval · Python</div>
+            <div class="project-label">Search · Python</div>
           </div>
           <div class="project-meta">
-            Everything is intentionally simple: data folder, embeddings, FAISS index,
-            and a CLI path where you can trace a query from text to top k results.
+            The project keeps everything clear. There is a data folder, an embeddings file, a FAISS index, and a small command line flow that shows how a question turns into the top results.
           </div>
           <div class="project-tags">
-            <span class="project-pill">Python · SentenceTransformers</span>
+            <span class="project-pill">Python</span>
+            <span class="project-pill">SentenceTransformers</span>
             <span class="project-pill">FAISS</span>
-            <span class="project-pill">CLI debug flow</span>
           </div>
           <div class="project-cta">Open on GitHub →</div>
         </a>
@@ -872,23 +820,20 @@
         >
           <div class="project-top-row">
             <div>
-              <div class="project-name">Fleet style Semantic Platform</div>
+              <div class="project-name">Fleet Style Semantic Platform</div>
               <div class="project-desc">
-                Node.js backend with a Redis job queue and a small React dashboard
-                for tracking retrieval jobs, so nothing disappears into the void.
+                A Node.js backend and a small React front end that use a Redis job queue. It lets you send work into a queue and see what is running.
               </div>
             </div>
             <div class="project-label">Queues · Full stack</div>
           </div>
           <div class="project-meta">
-            JWT secured routes, background workers, and a tiny status panel
-            for job counts and rough latency. It is my starter version of a
-            fleet telemetry view that is easy to extend.
+            There are protected routes, background workers, and a light dashboard with counts and rough timing. It is my small version of a system view for many jobs.
           </div>
           <div class="project-tags">
-            <span class="project-pill">Node.js · Express</span>
-            <span class="project-pill">Redis · queues</span>
-            <span class="project-pill">React dashboard</span>
+            <span class="project-pill">Node.js</span>
+            <span class="project-pill">Redis queues</span>
+            <span class="project-pill">React</span>
           </div>
           <div class="project-cta">Open on GitHub →</div>
         </a>
@@ -904,20 +849,17 @@
             <div>
               <div class="project-name">IoT Control Cloud</div>
               <div class="project-desc">
-                A small control panel for IoT style devices from the browser.
-                Flip states, push simple config updates, and see status in one view.
+                A basic web control panel for fake devices. You can change simple states and see the status in one place.
               </div>
             </div>
             <div class="project-label">IoT · Control</div>
           </div>
           <div class="project-meta">
-            Built like a starter control plane: clear separation between device
-            state and UI, clean routes, and a layout that could move from fake
-            devices to real hardware later.
+            The layout keeps device state separate from the user interface. It is built so it can move from fake devices to real hardware later.
           </div>
           <div class="project-tags">
-            <span class="project-pill">IoT</span>
-            <span class="project-pill">Control panel</span>
+            <span class="project-pill">IoT style</span>
+            <span class="project-pill">Simple UI</span>
             <span class="project-pill">Web dashboard</span>
           </div>
           <div class="project-cta">Open on GitHub →</div>
@@ -925,93 +867,47 @@
       </div>
     </section>
 
-    <!-- DEMOS -->
+    <!-- DEMO: SINGLE CHATBOT ABOUT YOU AND YOUR PROJECTS -->
     <section id="demos" class="section">
       <div class="section-header">
-        <h2 class="section-title">Live demos</h2>
+        <h2 class="section-title">Chat</h2>
         <p class="section-sub">
-          Two tiny sandboxes: one chatbot that explains my work and one toy
-          semantic search interface that mimics how I think about relevance.
+          Ask this box simple questions about me, my projects, my stack, or what I want to do next.
         </p>
       </div>
 
-      <div class="demos-grid">
-        <!-- Demo 1: chatbot -->
-        <div class="panel">
-          <div class="panel-header">
-            <div>
-              <div class="panel-title">Project explainer chatbot</div>
-              <div class="panel-desc">
-                Ask about my projects, stack, or internship goals. It is a small
-                rule based bot that routes you to the right parts of this page.
-              </div>
-            </div>
-            <div class="panel-label">Demo · Chat</div>
-          </div>
-          <div class="pill-row">
-            <div class="tiny-pill">Rule based (on purpose)</div>
-            <div class="tiny-pill">Projects Q and A</div>
-            <div class="tiny-pill">Front end only</div>
-          </div>
-
-          <div class="demo-body">
-            <div class="demo-body-inner">
-              <div class="demo-label">Chat with my portfolio</div>
-              <div class="demo-input-row">
-                <input
-                  type="text"
-                  id="chat-input"
-                  placeholder='Try: "How did you build semantic search?"'
-                />
-                <button id="chat-send">Send</button>
-              </div>
-              <div id="chat-output" class="demo-output">
-                <span>bot:</span> ask me about semantic search, queues, IoT,
-                Virginia Tech, or what I am aiming for next.
-              </div>
-              <div class="demo-hint">
-                Ideas: “What is your stack?”, “Do you use Redis?”, “What kind of
-                internships are you hunting for?”
-              </div>
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">Ask about me and my work</div>
+            <div class="panel-desc">
+              This is a small rule based chat. It shows short answers and points you to parts of this page.
             </div>
           </div>
+          <div class="panel-label">Demo · Chat</div>
+        </div>
+        <div class="pill-row">
+          <div class="tiny-pill">About me</div>
+          <div class="tiny-pill">Projects</div>
+          <div class="tiny-pill">Stack and goals</div>
         </div>
 
-        <!-- Demo 2: semantic search sandbox -->
-        <div class="panel">
-          <div class="panel-header">
-            <div>
-              <div class="panel-title">Semantic search sandbox</div>
-              <div class="panel-desc">
-                A tiny front end that pretends to be a semantic search tool and
-                ranks fake notes using a simple scoring trick.
-              </div>
+        <div class="demo-body">
+          <div class="demo-body-inner">
+            <div class="demo-label">Chat with my portfolio</div>
+            <div class="demo-input-row">
+              <input
+                type="text"
+                id="chat-input"
+                placeholder='Try: "What project are you proud of?"'
+              />
+              <button id="chat-send">Send</button>
             </div>
-            <div class="panel-label">Demo · Search</div>
-          </div>
-          <div class="pill-row">
-            <div class="tiny-pill">Toy relevance scoring</div>
-            <div class="tiny-pill">Top k project notes</div>
-          </div>
-
-          <div class="demo-body">
-            <div class="demo-body-inner">
-              <div class="demo-label">Search my fake notes</div>
-              <div class="demo-input-row">
-                <input
-                  type="text"
-                  id="search-input"
-                  placeholder='Try: "FAISS embeddings" or "job queue"'
-                />
-                <button id="search-run">Search</button>
-              </div>
-              <div id="search-results" class="demo-docs">
-                <!-- populated by JS -->
-              </div>
-              <div class="demo-hint">
-                The real project uses SentenceTransformers plus FAISS in Python.
-                This is a small cousin that just plays with the ranking idea.
-              </div>
+            <div id="chat-output" class="demo-output">
+              <span>bot:</span> ask me about my projects, tools I use, school, or what I want to do in the future.
+            </div>
+            <div class="demo-hint">
+              Ideas: "Tell me about you", "What is your stack", "What is your semantic search project", "What kind of internship do you want".
             </div>
           </div>
         </div>
@@ -1023,7 +919,7 @@
       <div class="section-header">
         <h2 class="section-title">About</h2>
         <p class="section-sub">
-          A quick look at who I am, what I like building, and the tools I reach for first.
+          A short view of who I am, what I like to build, and the tools I use most.
         </p>
       </div>
 
@@ -1031,20 +927,16 @@
         <div class="about-card">
           <h3>Who I am</h3>
           <p>
-            I am a Computer Science student at Virginia Tech who really enjoys
-            the mix of AI, data, and backend work. I like building things that
-            feel friendly to use but serious about structure behind the scenes.
+            I am a Computer Science student at Virginia Tech. I like working on AI, data, and backend code that feels simple and clear.
           </p>
           <p>
-            My favorite projects make it easy for someone new to open the repo,
-            run a command or two, and understand what is happening without a
-            long speech.
+            When I build a project, I want someone to clone it, run one or two commands, and understand what it does without feeling lost.
           </p>
           <ul class="about-list">
-            <li><span>Location:</span> Virginia, USA (always planning the next trip)</li>
-            <li><span>School:</span> Virginia Tech · B.S. in Computer Science</li>
-            <li><span>Focus:</span> AI engineering, data workflows, platform style tools</li>
-            <li><span>Currently:</span> building more AI and systems projects and applying for Summer 2026 roles</li>
+            <li><span>Location:</span> Virginia, USA</li>
+            <li><span>School:</span> Virginia Tech, Computer Science</li>
+            <li><span>Focus:</span> AI, data, and platform style tools</li>
+            <li><span>Right now:</span> building more AI and systems projects and applying for Summer 2026 roles</li>
           </ul>
         </div>
 
@@ -1052,19 +944,19 @@
           <h3>Stack and contact</h3>
           <ul class="about-list">
             <li>
-              <span>Languages:</span> Python, Java, JavaScript and TypeScript, basic SQL
+              <span>Languages:</span> Python, Java, JavaScript, TypeScript, basic SQL
             </li>
             <li>
               <span>AI and data:</span> Pandas, NumPy, SentenceTransformers
             </li>
             <li>
-              <span>Backend:</span> Node.js, Express, REST APIs, Redis queues
+              <span>Backend:</span> Node.js, Express, REST APIs, small queues
             </li>
             <li>
-              <span>Frontend:</span> React basics, HTML, CSS, simple dashboards
+              <span>Frontend:</span> basic React, HTML, CSS, simple dashboards
             </li>
             <li>
-              <span>Cloud and tooling:</span> AWS, Git, GitHub, CLI flows, GitHub Pages
+              <span>Cloud and tools:</span> AWS, Git, GitHub, command line flows, GitHub Pages
             </li>
           </ul>
           <div id="contact" class="contact-chip-row">
@@ -1097,7 +989,7 @@
 
     <footer>
       <span>© <span id="year"></span> Thanvi Ravala · Virginia Tech CS</span>
-      <span>Built as a small glowing control center for my projects.</span>
+      <span>This page is a small control center for my projects and goals.</span>
     </footer>
   </div>
 
@@ -1111,38 +1003,42 @@
     function respondToChat(query) {
       const q = (query || "").toLowerCase();
       if (!q.trim()) {
-        return "Ask me about semantic search, queues, IoT control, Virginia Tech, or the kind of roles I am exploring.";
+        return "You can ask about my projects, tools I use, school, or what I want to do next.";
       }
 
       if (q.includes("semantic") || q.includes("search") || q.includes("faiss")) {
-        return "I built a semantic search project in Python using a SentenceTransformers model for embeddings and FAISS as the vector index. The design is small and traceable so you can follow a query from text to top k results.";
+        return "I built a small semantic search project in Python. It uses a SentenceTransformers model to turn notes into vectors and FAISS to find the closest notes for a question. The goal is to keep the flow simple so it is easy to follow.";
       }
 
       if (q.includes("queue") || q.includes("redis") || q.includes("worker")) {
-        return "I have a Node.js and Redis project where each retrieval request becomes a job in a queue. Background workers pick up jobs, and a small React dashboard shows status and rough throughput.";
+        return "I have a Node.js and Redis project where each request becomes a job in a queue. Workers pick up jobs in the background, and a small React page shows what is running and how many jobs are done.";
       }
 
       if (q.includes("iot") || q.includes("device") || q.includes("control")) {
-        return "The IoT Control Cloud project acts like a starter control plane for devices. It separates device state from UI, and the layout could move from test devices to real hardware later.";
+        return "My IoT Control Cloud project is a basic web panel for fake devices. You can change states and see the status on one page. It is built so it can connect to real devices later.";
       }
 
-      if (q.includes("dashboard") || q.includes("viz") || q.includes("visualizer")) {
-        return "I like dashboards that are simple but honest. Job counts, rough latency, success versus error. The goal is to make debugging feel like reading a story, not detective work.";
+      if (q.includes("dashboard") || q.includes("viz") || q.includes("visual")) {
+        return "I like very clear dashboards. I care about simple numbers like how many jobs are running, how long they take, and if anything failed. I want debugging to feel calm and easy, not confusing.";
       }
 
       if (q.includes("school") || q.includes("vt") || q.includes("virginia tech")) {
-        return "I am a CS student at Virginia Tech, leaning into AI, data heavy systems, and backend work. Outside of code, I love traveling, running, and finding good food wherever I end up.";
+        return "I study Computer Science at Virginia Tech. I am very interested in AI, data heavy systems, and backend work. I also enjoy traveling, running, and finding good food in new places.";
       }
 
       if (q.includes("tech") || q.includes("stack") || q.includes("tools")) {
-        return "My main stack: Python, Java, and JavaScript or TypeScript. For AI and data I use Pandas, NumPy, and SentenceTransformers. For backend: Node.js, Express, Redis, REST APIs. For infra: AWS, Git, and a lot of CLI.";
+        return "My main stack is Python, Java, JavaScript and TypeScript. For data and AI I use Pandas, NumPy, and SentenceTransformers. For backend I use Node.js and Express, and for cloud I use AWS and GitHub.";
       }
 
-      if (q.includes("intern") || q.includes("role") || q.includes("job")) {
-        return "I am targeting AI engineering and systems style internships for Summer 2026. I like roles that blend models, data pipelines, and platform style reliability work.";
+      if (q.includes("intern") || q.includes("role") || q.includes("job") || q.includes("future")) {
+        return "I am looking for AI and systems related internships for Summer 2026. I like roles that mix models, data pipelines, and platform style work where you have to think about reliability and real users.";
       }
 
-      return "Short version: I am a VT CS student who likes AI and systems and cares a lot about reliability. Ask about semantic search, queues, IoT control, dashboards, or my stack, and I will point you to the right part of this page.";
+      if (q.includes("about") || q.includes("you") || q.includes("who are you")) {
+        return "I am Thanvi. I like building small systems that are easy to read and easy to run. My projects focus on search, queues, dashboards, and simple control panels that make AI and data feel less scary.";
+      }
+
+      return "Short answer: I am a CS student at Virginia Tech who likes AI, data, and backend systems. Ask about a project, my stack, or my goals, and I will share more.";
     }
 
     chatSend.addEventListener("click", () => {
@@ -1156,93 +1052,6 @@
         chatSend.click();
       }
     });
-
-    const docs = [
-      {
-        title: "Semantic search notes",
-        snippet:
-          "A small search tool that finds the most relevant notes using embeddings and a vector index.",
-        keywords: ["search", "semantic", "embeddings", "notes", "faiss"],
-      },
-      {
-        title: "Job queue demo",
-        snippet:
-          "Each request turns into a job in a queue, and workers process them in the background.",
-        keywords: ["queue", "jobs", "workers", "redis"],
-      },
-      {
-        title: "Status dashboard",
-        snippet:
-          "A clean dashboard that shows what is running and how fast things are moving.",
-        keywords: ["dashboard", "status", "latency"],
-      },
-      {
-        title: "IoT control surface",
-        snippet:
-          "A browser panel for toggling device states and pushing basic config changes.",
-        keywords: ["iot", "device", "control"],
-      },
-      {
-        title: "CLI tracing tool",
-        snippet:
-          "A command line helper that traces how a search goes from text to results.",
-        keywords: ["cli", "trace", "search"],
-      },
-    ];
-
-    const searchInput = document.getElementById("search-input");
-    const searchResults = document.getElementById("search-results");
-    const searchRun = document.getElementById("search-run");
-
-    function runSearch(query) {
-      const qWords = (query || "")
-        .toLowerCase()
-        .split(/\s+/)
-        .filter(Boolean);
-
-      const scored = docs
-        .map((doc) => {
-          let score = 0;
-          qWords.forEach((word) => {
-            if (doc.keywords.some((k) => k.includes(word))) {
-              score += 2;
-            }
-            if (doc.snippet.toLowerCase().includes(word)) {
-              score += 1;
-            }
-          });
-          return { doc, score };
-        })
-        .filter((item) => item.score > 0)
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 3);
-
-      if (!qWords.length || scored.length === 0) {
-        searchResults.innerHTML =
-          '<div class="demo-doc"><strong>No strong matches yet.</strong><br><span>Try something like “FAISS”, “job queue”, or “IoT control”.</span></div>';
-        return;
-      }
-
-      searchResults.innerHTML = scored
-        .map(
-          (item) =>
-            `<div class="demo-doc"><strong>${item.doc.title}</strong><br><span>${item.doc.snippet}</span></div>`
-        )
-        .join("");
-    }
-
-    searchRun.addEventListener("click", () => {
-      runSearch(searchInput.value);
-    });
-
-    searchInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        searchRun.click();
-      }
-    });
-
-    // initial example
-    runSearch("faiss");
   </script>
 </body>
 </html>
