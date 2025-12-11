@@ -782,7 +782,7 @@
       </div>
 
       <div class="projects-grid">
-        <!-- Project 1 -->
+        <!-- Project 1: Semantic search -->
         <a
           class="project-card"
           href="https://github.com/thanviravala3-ui/semantic-search-technical-notes"
@@ -811,34 +811,37 @@
           <div class="project-cta">Open on GitHub →</div>
         </a>
 
-        <!-- Project 2 -->
+        <!-- Project 2: Cloud Retrieval & Job Queue System -->
         <a
           class="project-card"
-          href="https://github.com/thanviravala3-ui/fleet-semantic-platform"
+          href="https://github.com/thanviravala3-ui/cloud-retrieval-job-queue"
           target="_blank"
           rel="noreferrer"
         >
           <div class="project-top-row">
             <div>
-              <div class="project-name">Fleet Style Semantic Platform</div>
+              <div class="project-name">
+                Cloud Retrieval & Job Queue System
+              </div>
               <div class="project-desc">
-                A Node.js backend and a small React front end that use a Redis job queue. It lets you send work into a queue and see what is running.
+                A Node.js and Redis based job queue system with a small React dashboard. Each request becomes a job, and workers process them in the background.
               </div>
             </div>
-            <div class="project-label">Queues · Full stack</div>
+            <div class="project-label">Queues · Cloud style</div>
           </div>
           <div class="project-meta">
-            There are protected routes, background workers, and a light dashboard with counts and rough timing. It is my small version of a system view for many jobs.
+            The project has a backend API, a worker service, Docker files for containers, and simple metrics for throughput and error rate. It is built to look like a small AppDev style architecture demo.
           </div>
           <div class="project-tags">
             <span class="project-pill">Node.js</span>
-            <span class="project-pill">Redis queues</span>
-            <span class="project-pill">React</span>
+            <span class="project-pill">Redis</span>
+            <span class="project-pill">BullMQ</span>
+            <span class="project-pill">React dashboard</span>
           </div>
           <div class="project-cta">Open on GitHub →</div>
         </a>
 
-        <!-- Project 3 -->
+        <!-- Project 3: IoT Control Cloud -->
         <a
           class="project-card"
           href="https://github.com/thanviravala3-ui/iot-control-cloud"
@@ -861,6 +864,33 @@
             <span class="project-pill">IoT style</span>
             <span class="project-pill">Simple UI</span>
             <span class="project-pill">Web dashboard</span>
+          </div>
+          <div class="project-cta">Open on GitHub →</div>
+        </a>
+
+        <!-- Project 4: Fleet style semantic platform -->
+        <a
+          class="project-card"
+          href="https://github.com/thanviravala3-ui/fleet-semantic-platform"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div class="project-top-row">
+            <div>
+              <div class="project-name">Fleet Style Semantic Platform</div>
+              <div class="project-desc">
+                A small full stack project that combines a Node.js backend, a queue, and a React view to explore simple “fleet” style workloads.
+              </div>
+            </div>
+            <div class="project-label">Full stack · Experiments</div>
+          </div>
+          <div class="project-meta">
+            It focuses on clear job flows and small interfaces, so it is easy to see how requests move through the system and how they can be retried or inspected.
+          </div>
+          <div class="project-tags">
+            <span class="project-pill">Node.js</span>
+            <span class="project-pill">React</span>
+            <span class="project-pill">Queues</span>
           </div>
           <div class="project-cta">Open on GitHub →</div>
         </a>
@@ -1010,8 +1040,8 @@
         return "I built a small semantic search project in Python. It uses a SentenceTransformers model to turn notes into vectors and FAISS to find the closest notes for a question. The goal is to keep the flow simple so it is easy to follow.";
       }
 
-      if (q.includes("queue") || q.includes("redis") || q.includes("worker")) {
-        return "I have a Node.js and Redis project where each request becomes a job in a queue. Workers pick up jobs in the background, and a small React page shows what is running and how many jobs are done.";
+      if (q.includes("queue") || q.includes("redis") || q.includes("worker") || q.includes("job")) {
+        return "My Cloud Retrieval and Job Queue System is a Node.js and Redis project where each request becomes a job in a queue. Workers handle jobs in the background, and a small React dashboard shows recent jobs, throughput, and error rate.";
       }
 
       if (q.includes("iot") || q.includes("device") || q.includes("control")) {
