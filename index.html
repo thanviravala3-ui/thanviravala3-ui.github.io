@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,8 +56,6 @@
       margin: 0 auto;
       padding: 18px 18px 60px;
     }
-
-    /* NAV */
 
     .nav {
       display: flex;
@@ -189,8 +188,6 @@
         display: none;
       }
     }
-
-    /* HERO */
 
     .hero {
       display: grid;
@@ -350,8 +347,6 @@
       }
     }
 
-    /* SECTIONS */
-
     .section {
       padding: 56px 4px 6px;
     }
@@ -374,7 +369,65 @@
       max-width: 480px;
     }
 
-    /* PROJECTS */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 780px) {
+      .experience-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .exp-card {
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      border: 1px solid var(--border-subtle);
+      padding: 16px 16px 14px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7);
+      display: grid;
+      gap: 8px;
+    }
+
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .exp-role {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .exp-org {
+      font-size: 0.86rem;
+      color: var(--fg-muted);
+    }
+
+    .exp-time {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--fg-muted);
+      white-space: nowrap;
+    }
+
+    .exp-bullets {
+      margin-top: 2px;
+      display: grid;
+      gap: 6px;
+      font-size: 0.86rem;
+      color: var(--fg-muted);
+    }
+
+    .exp-bullets div {
+      padding-left: 10px;
+      border-left: 2px solid rgba(56, 189, 248, 0.35);
+    }
 
     .projects-grid {
       display: grid;
@@ -478,8 +531,6 @@
       text-transform: uppercase;
       letter-spacing: 0.16em;
     }
-
-    /* DEMO PANEL (single chatbot) */
 
     .panel {
       border-radius: var(--radius-lg);
@@ -607,8 +658,6 @@
       color: #9ca3af;
     }
 
-    /* ABOUT + CONTACT */
-
     .about-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
@@ -696,7 +745,6 @@
 </head>
 <body>
   <div class="page">
-    <!-- NAV -->
     <header class="nav">
       <div class="nav-left">
         <div class="brand-badge">TR</div>
@@ -704,7 +752,9 @@
       </div>
       <nav class="nav-links">
         <a href="#home">Home</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
         <a href="#demos">Chat</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
@@ -727,10 +777,17 @@
         >
           GitHub
         </a>
+        <a
+          class="nav-btn"
+          href="resume.pdf"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Resume
+        </a>
       </div>
     </header>
 
-    <!-- HERO -->
     <main id="home" class="hero">
       <div>
         <p class="hero-main-line">Thanvi Ravala</p>
@@ -743,9 +800,9 @@
         </p>
 
         <div class="hero-badges">
-          <div class="hero-pill">Semantic search and small AI tools</div>
-          <div class="hero-pill">Python · Node.js · Java</div>
-          <div class="hero-pill">AWS · basic queues · clean layouts</div>
+          <div class="hero-pill">Cloud and backend systems</div>
+          <div class="hero-pill">Python · Node.js · React</div>
+          <div class="hero-pill">AWS certified · exploring Azure</div>
         </div>
 
         <div class="hero-actions">
@@ -753,14 +810,13 @@
           <a href="#demos" class="nav-btn">Chat about my work</a>
         </div>
         <p class="hero-note">
-          You can scroll to see my projects or go to the chat section and ask simple questions about me and what I build.
+          You can scroll to see my experience and projects or go to the chat section and ask simple questions about me and what I build.
         </p>
       </div>
 
       <div class="hero-right">
         <div class="avatar-glow-wrap">
           <div class="avatar-ring">
-            <!-- put thanvi.jpg in the same folder as this file -->
             <img
               src="thanvi.jpg"
               alt="Photo of Thanvi Ravala"
@@ -772,7 +828,96 @@
       </div>
     </main>
 
-    <!-- PROJECTS -->
+    <section id="experience" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-sub">
+          Real work I have done across backend systems, data workflows, and product features.
+        </p>
+      </div>
+
+      <div class="experience-grid">
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <div class="exp-role">AI and Data Science Intern</div>
+              <div class="exp-org">Alferix Inc · Houston, TX</div>
+            </div>
+            <div class="exp-time">Jun 2025 to Aug 2025</div>
+          </div>
+          <div class="exp-bullets">
+            <div>Contributed to React frontends, Node.js APIs, and database backed workflows that supported data driven features.</div>
+            <div>Debugged API failures and data inconsistencies, added logging, and built small helpers that made issues easier to trace.</div>
+            <div>Worked with engineers, designers, and PMs during iterative development to connect product needs with system behavior.</div>
+          </div>
+          <div class="project-tags">
+            <span class="project-pill">React</span>
+            <span class="project-pill">Node.js</span>
+            <span class="project-pill">Databases</span>
+            <span class="project-pill">Debugging</span>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <div class="exp-role">Data Analytics and Programming Intern</div>
+              <div class="exp-org">Waveyn · Remote</div>
+            </div>
+            <div class="exp-time">Jan 2025 to Apr 2025</div>
+          </div>
+          <div class="exp-bullets">
+            <div>Built Python and Node.js utilities for data validation, logging, and debugging across internal workflows.</div>
+            <div>Assisted with reviewing model outputs, investigating performance issues, and improving input quality for downstream systems.</div>
+            <div>Focused on making cloud backed services more reliable and easier to understand during troubleshooting.</div>
+          </div>
+          <div class="project-tags">
+            <span class="project-pill">Python</span>
+            <span class="project-pill">Node.js</span>
+            <span class="project-pill">Data validation</span>
+            <span class="project-pill">Reliability</span>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <div class="exp-role">Conversation Partner</div>
+              <div class="exp-org">Virginia Tech Language and Culture Institute · Blacksburg, VA</div>
+            </div>
+            <div class="exp-time">Sep 2024 to Mar 2025</div>
+          </div>
+          <div class="exp-bullets">
+            <div>Supported international students through weekly conversations focused on English development and cultural exchange.</div>
+            <div>Strengthened communication skills by explaining ideas clearly to people from diverse backgrounds.</div>
+          </div>
+          <div class="project-tags">
+            <span class="project-pill">Communication</span>
+            <span class="project-pill">Leadership</span>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <div class="exp-role">Roblox Game Developer</div>
+              <div class="exp-org">Roblox · Freelance</div>
+            </div>
+            <div class="exp-time">Feb 2016 to Jun 2022</div>
+          </div>
+          <div class="exp-bullets">
+            <div>Built and shipped game features with an emphasis on fun gameplay loops and smooth performance.</div>
+            <div>Reached over 600k player visits and generated in game revenue through iterative updates and testing.</div>
+          </div>
+          <div class="project-tags">
+            <span class="project-pill">Lua</span>
+            <span class="project-pill">Product thinking</span>
+            <span class="project-pill">Iteration</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="projects" class="section">
       <div class="section-header">
         <h2 class="section-title">Projects</h2>
@@ -782,7 +927,6 @@
       </div>
 
       <div class="projects-grid">
-        <!-- Project 1: Semantic search -->
         <a
           class="project-card"
           href="https://github.com/thanviravala3-ui/semantic-search-technical-notes"
@@ -811,7 +955,6 @@
           <div class="project-cta">Open on GitHub →</div>
         </a>
 
-                <!-- Project 2: Cloud Retrieval & Job Queue System -->
         <a
           class="project-card"
           href="https://github.com/thanviravala3-ui/cloud-retrieval-job-queue"
@@ -845,8 +988,6 @@
           <div class="project-cta">Open on GitHub →</div>
         </a>
 
-
-        <!-- Project 3: IoT Control Cloud -->
         <a
           class="project-card"
           href="https://github.com/thanviravala3-ui/iot-control-cloud"
@@ -873,7 +1014,6 @@
           <div class="project-cta">Open on GitHub →</div>
         </a>
 
-        <!-- Project 4: Fleet style semantic platform -->
         <a
           class="project-card"
           href="https://github.com/thanviravala3-ui/fleet-semantic-platform"
@@ -884,7 +1024,7 @@
             <div>
               <div class="project-name">Fleet Style Semantic Platform</div>
               <div class="project-desc">
-                A small full stack project that combines a Node.js backend, a queue, and a React view to explore simple “fleet” style workloads.
+                A small full stack project that combines a Node.js backend, a queue, and a React view to explore simple fleet style workloads.
               </div>
             </div>
             <div class="project-label">Full stack · Experiments</div>
@@ -902,7 +1042,40 @@
       </div>
     </section>
 
-    <!-- DEMO: SINGLE CHATBOT ABOUT YOU AND YOUR PROJECTS -->
+    <section id="certifications" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Certifications and Education</h2>
+        <p class="section-sub">
+          Credentials and academic background that support my focus in cloud, software engineering, and AI.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Certification</h3>
+          <ul class="about-list">
+            <li><span>AWS Certified Solutions Architect:</span> Associate</li>
+          </ul>
+
+          <div class="contact-chip-row" style="margin-top: 12px;">
+            <a class="contact-chip" href="https://www.credly.com/" target="_blank" rel="noreferrer">
+              Add Credly link
+            </a>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <h3>Education and highlights</h3>
+          <ul class="about-list">
+            <li><span>Virginia Tech:</span> Computer Science, BE, May 2027</li>
+            <li><span>Honors:</span> Dean’s List and Honor Roll Spring 2025</li>
+            <li><span>Honors:</span> Dean’s List and Honor Roll Fall 2024</li>
+            <li><span>Organizations:</span> Alpha Omega Epsilon, VT Hacks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section id="demos" class="section">
       <div class="section-header">
         <h2 class="section-title">Chat</h2>
@@ -949,7 +1122,6 @@
       </div>
     </section>
 
-    <!-- ABOUT + CONTACT -->
     <section id="about" class="section">
       <div class="section-header">
         <h2 class="section-title">About</h2>
@@ -991,7 +1163,7 @@
               <span>Frontend:</span> basic React, HTML, CSS, simple dashboards
             </li>
             <li>
-              <span>Cloud and tools:</span> AWS, Git, GitHub, command line flows, GitHub Pages
+              <span>Cloud and tools:</span> AWS, Git, GitHub, GitHub Pages
             </li>
           </ul>
           <div id="contact" class="contact-chip-row">
@@ -1041,6 +1213,14 @@
         return "You can ask about my projects, tools I use, school, or what I want to do next.";
       }
 
+      if (q.includes("experience") || q.includes("work") || q.includes("alferix") || q.includes("waveyn")) {
+        return "I have worked on backend and data focused tooling in internships. At Alferix I contributed to React, Node.js APIs, and database backed workflows. At Waveyn I built Python and Node.js utilities for validation, logging, and debugging. Scroll to the Experience section to see details.";
+      }
+
+      if (q.includes("cert") || q.includes("certification") || q.includes("aws")) {
+        return "I am AWS Certified Solutions Architect Associate. I am also exploring Azure and Microsoft Learn content alongside cloud projects. Scroll to Certifications and Education to see details.";
+      }
+
       if (q.includes("semantic") || q.includes("search") || q.includes("faiss")) {
         return "I built a small semantic search project in Python. It uses a SentenceTransformers model to turn notes into vectors and FAISS to find the closest notes for a question. The goal is to keep the flow simple so it is easy to follow.";
       }
@@ -1066,14 +1246,14 @@
       }
 
       if (q.includes("intern") || q.includes("role") || q.includes("job") || q.includes("future")) {
-        return "I am looking for AI and systems related internships for Summer 2026. I like roles that mix models, data pipelines, and platform style work where you have to think about reliability and real users.";
+        return "I am looking for software engineering, cloud, and AI related internships for Summer 2026. I like roles that mix models, data pipelines, and platform style work where reliability and clarity matter.";
       }
 
       if (q.includes("about") || q.includes("you") || q.includes("who are you")) {
         return "I am Thanvi. I like building small systems that are easy to read and easy to run. My projects focus on search, queues, dashboards, and simple control panels that make AI and data feel less scary.";
       }
 
-      return "Short answer: I am a CS student at Virginia Tech who likes AI, data, and backend systems. Ask about a project, my stack, or my goals, and I will share more.";
+      return "Short answer: I am a CS student at Virginia Tech who likes AI, data, and backend systems. Ask about experience, projects, my stack, or my goals, and I will share more.";
     }
 
     chatSend.addEventListener("click", () => {
@@ -1090,3 +1270,4 @@
   </script>
 </body>
 </html>
+```
